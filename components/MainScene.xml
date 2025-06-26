@@ -1,0 +1,114 @@
+Skip to content
+Chat history
+
+You said:
+hey i am trying to make a game for roku tv which is trivia game can you halp me steup its base its my first time ever to work on this using bright script or scene grapgh
+ChatGPT said:
+Updated saved memory
+Absolutely, Uzair! I can help you set up the base for your Roku trivia game. Since it's your first time with Roku development, let's go step-by-step.
+
+🔧 Step 1: Roku Development Setup
+1. Enable Developer Mode on Roku TV
+On your Roku remote, press the following:
+
+Home (3x), Up (2x), Right, Left, Right, Left, Right
+This opens Developer Settings.
+
+Enable Developer Mode and set a web server password.
+
+Note down the IP address shown on-screen.
+
+2. Access Web Developer Interface
+On your PC browser, go to:
+
+http://<ROKU_DEVICE_IP>
+Login using rokudev as username and the password you just set.
+
+📁 Step 2: Create a Basic Roku Channel
+You’ll build with SceneGraph, Roku’s XML-based UI framework, and BrightScript, the scripting language.
+
+Let’s make a basic project structure:
+
+MyTriviaGame/
+├── manifest
+├── source/
+│   └── main.brs
+├── components/
+│   └── MainScene.xml
+│   └── MainScene.brs
+📜 Step 3: Add Basic Files
+manifest
+title=My Trivia Game
+major_version=1
+minor_version=0
+build_version=00001
+mm_icon_focus_hd=pkg:/images/icon_focus_hd.png
+source/main.brs
+sub Main()
+    screen = CreateObject("roSGScreen")
+    m.port = CreateObject("roMessagePort")
+    screen.setMessagePort(m.port)
+    scene = screen.CreateScene("MainScene")
+    screen.show()
+
+    while true
+        msg = wait(0, m.port)
+        if type(msg) = "roSGScreenEvent" and msg.isScreenClosed()
+            exit while
+        end if
+    end while
+end sub
+components/MainScene.xml
+<component name="MainScene" extends="Scene">
+    <script type="text/brightscript" uri="MainScene.brs" />
+    <children>
+        <Label
+            id="titleLabel"
+            text="Welcome to Trivia Game"
+            translation="[100,100]"
+            font="Medium"
+        />
+    </children>
+</component>
+components/MainScene.brs
+sub init()
+    m.titleLabel = m.top.findNode("titleLabel")
+end sub
+🚀 Step 4: Sideload Your App
+Zip the entire MyTriviaGame folder.
+
+Go to http://<ROKU_DEVICE_IP> in browser.
+
+Upload the ZIP file and click Install.
+
+Your app should launch and show "Welcome to Trivia Game".
+
+✅ Next Steps
+Once you're set up:
+
+I can help you build the menu and trivia logic.
+
+Implement question loading and answer buttons.
+
+Add animations or remote control navigation.
+
+Would you like me to help you next with:
+
+The question screen?
+
+A horizontal menu to choose trivia types?
+
+Remote control navigation?
+
+Let me know!
+
+
+Unlock more with Plus
+ChatGPT Plus gives you higher limits, smarter models, and Sora for video.
+
+Get Plus
+
+
+
+No file chosenNo file chosen
+ChatGPT can make mistakes. Check important info.
