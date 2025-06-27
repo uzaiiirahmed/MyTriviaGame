@@ -3,14 +3,21 @@
     <script type="text/brightscript" uri="MainScene.brs" />
 
     <children>
-        <Label
-            id="titleLabel"
-            text="Welcome to Trivia Game"
-            translation="[100, 100]"
+        <Rectangle
+            id="bgRect"
             width="1280"
             height="720"
+            color="0x000000FF"
+        />
+        <Label
+            id="titleLabel"
+            text="Trivia Quest"
+            translation="[0, 200]"
+            width="1280"
+            height="100"
             horizAlign="center"
-            font="Medium"
+            vertAlign="center"
+            color="0xFFFFFFFF"
         />
     </children>
 </component>

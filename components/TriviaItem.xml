@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="TriviaItem" extends="Group">
+    <interface>
+        <field id="title" type="string" />
+        <field id="description" type="string" />
+    </interface>
+    <children>
+        <Label
+            id="titleLabel"
+            translation="[0, 0]"
+            width="300"
+            height="40"
+            font="Medium"
+            horizAlign="center"
+            text="{title}"
+        />
+        <Label
+            id="descLabel"
+            translation="[0, 50]"
+            width="300"
+            height="60"
+            font="Small"
+            horizAlign="center"
+            text="{description}"
+            wrap="true"
+        />
+    </children>
+</component> 
