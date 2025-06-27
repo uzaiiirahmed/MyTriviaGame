@@ -12,12 +12,20 @@
         <Label
             id="titleLabel"
             text="Trivia Quest"
-            translation="[0, 200]"
+            translation="[0, 100]"
             width="1280"
             height="100"
             horizAlign="center"
             vertAlign="center"
             color="0xFFFFFFFF"
+        />
+        <LabelList
+            id="triviaList"
+            translation="[440, 250]"
+            itemSize="[400, 60]"
+            numRows="3"
+            color="0xFFFFFFFF"
+            focusBitmapUri=""
         />
     </children>
 </component>
