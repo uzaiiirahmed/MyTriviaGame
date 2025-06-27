@@ -17,3 +17,23 @@ sub init()
     rowListContent.appendChild(rowNode)
     m.triviaMenu.content = rowListContent
 end sub 
+
+sub showQuestionScene(trivia as Object)
+    m.top.goToQuestionScene = trivia
+end sub 
+
+function onKeyEvent(key as String, press as Boolean) as Boolean
+    if press then
+        if key = "back" then
+            m.top.goToMainScene = true
+            return true
+        end if
+        if key = "OK" then
+            idx = m.answerList.getFocusedItem()
+            print "Selected answer: " + m.answerList.content.getChild(idx).title
+            ' Add answer logic here
+            return true
+        end if
+    end if
+    return false
+end function 

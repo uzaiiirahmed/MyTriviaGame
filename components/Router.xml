@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="Router" extends="Scene">
+    <script type="text/brightscript" uri="Router.brs" />
+    <children>
+        <MainScene id="mainScene" />
+        <QuestionScene id="questionScene" visible="false" />
+    </children>
+</component> 

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<component name="MainScene" extends="Scene">
+<component name="MainScene" extends="Group">
+    <interface>
+        <field id="selectedTrivia" type="assocarray" alwaysNotify="true" />
+    </interface>
     <script type="text/brightscript" uri="MainScene.brs" />
 
     <children>
@@ -21,11 +24,21 @@
         />
         <LabelList
             id="triviaList"
-            translation="[440, 250]"
+            translation="[440, 220]"
             itemSize="[400, 60]"
-            numRows="3"
             color="0xFFFFFFFF"
             focusBitmapUri=""
+            focusedColor="0xFFD700FF"
+        />
+        <Label
+            id="descLabel"
+            text=""
+            translation="[0, 600]"
+            width="1280"
+            height="80"
+            horizAlign="center"
+            vertAlign="center"
+            color="0xFFD700FF"
         />
     </children>
 </component>
