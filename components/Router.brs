@@ -8,6 +8,7 @@ end sub
 
 sub onTriviaSelected()
     trivia = m.mainScene.selectedTrivia
+    print "[Router] - onTriviaSelected called, trivia="; trivia
     if trivia <> invalid
         ' Pass data to question scene
         m.questionScene.trivia = trivia
@@ -24,7 +25,7 @@ sub onBackToMain()
         ' Switch visibility
         m.questionScene.visible = false
         m.mainScene.visible = true
-        m.mainScene.setFocus(true)
+        m.mainScene.findNode("triviaList").setFocus(true)
 
         ' Reset field to allow re-triggering
         m.questionScene.backToMain = false

@@ -35,9 +35,7 @@ sub init()
     end for
     m.triviaList.content = listContent
     m.triviaList.setFocus(true)
-
-    ' Observe itemFocused to update description
-    m.triviaList.ObserveField("itemFocused", "onItemFocused")
+    m.triviaList.ObserveField("itemSelected", "onTriviaSelected")
 end sub
 
 sub onItemFocused()
@@ -49,6 +47,10 @@ end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if press then
+        ' Forward navigation keys to the list
+        if key = "up" or key = "down" or key = "left" or key = "right" then
+            return m.triviaList.onKeyEvent(key, press)
+        end if
         if key = "OK" then
             idx = m.triviaList.itemFocused
             print "[MainScene] - OK pressed. Sending trivia selection signal for item: " + stri(idx)
@@ -61,4 +63,13 @@ end function
 
 sub showQuestionScene(trivia as Object)
     ' This function is no longer needed, navigation is handled by the Router.
+end sub
+
+sub onTriviaSelected()
+    idx = m.triviaList.itemSelected
+    print "[MainScene] - itemSelected fired, idx="; idx
+    if idx >= 0 and idx < m.triviaTypes.count()
+        print "[MainScene] - Setting selectedTrivia for Router"
+        m.top.selectedTrivia = m.triviaTypes[idx]
+    end if
 end sub
