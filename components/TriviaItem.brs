@@ -37,3 +37,24 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     end if
     return false
 end function 
+
+sub onTriviaChanged()
+    trivia = m.top.trivia
+    if trivia <> invalid
+        m.titleLabel.text = trivia.title
+        m.questionLabel.text = trivia.question
+
+        ' Populate answers
+        answers = trivia.answers
+        listContent = CreateObject("roSGNode", "ContentNode")
+        for each a in answers
+            item = CreateObject("roSGNode", "ContentNode")
+            item.title = a
+            listContent.appendChild(item)
+        end for
+        m.answerList.content = listContent
+
+        ' Set focus to the answer list so user can scroll
+        m.answerList.setFocus(true)
+    end if
+end sub 

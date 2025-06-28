@@ -25,7 +25,7 @@ end sub
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if press then
         if key = "OK" then
-            idx = m.answerList.getFocusedItem()
+            idx = m.answerList.itemFocused
             print "Selected answer: " + m.answerList.content.getChild(idx).title
             ' You can add logic here to check if the answer is correct
             return true
