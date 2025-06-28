@@ -5,6 +5,12 @@ sub init()
     m.feedbackLabel = m.top.findNode("feedbackLabel")
     m.currentQuestionIndex = 0
     m.trivia = invalid
+
+    m.nextTimer = CreateObject("roSGNode", "Timer")
+    m.nextTimer.duration = 1.0
+    m.nextTimer.control = "stop"
+    m.top.appendChild(m.nextTimer)
+    m.nextTimer.ObserveField("fire", "onNextQuestionTimer")
 end sub
 
 sub onTriviaChanged()
@@ -50,13 +56,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
                 m.feedbackLabel.text = "Incorrect!"
             end if
             ' Move to next question after 1 second
-            nextIdx = m.currentQuestionIndex + 1
-            m.currentQuestionIndex = nextIdx
-            timer = CreateObject("roSGNode", "Timer")
-            timer.duration = 1.0
-            timer.control = "start"
-            m.top.appendChild(timer)
-            timer.ObserveField("fire", "onNextQuestionTimer")
+            m.nextTimer.control = "start"
             return true
         else if key = "back" then
             m.top.backToMain = true
@@ -67,10 +67,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
 end function
 
 sub onNextQuestionTimer()
-    ' Remove the timer node
-    timer = m.top.getChild(m.top.getChildCount() - 1)
-    if timer <> invalid and timer.isSameNodeType("Timer") then
-        m.top.removeChild(timer)
-    end if
+    m.nextTimer.control = "stop"
+    m.currentQuestionIndex = m.currentQuestionIndex + 1
     showCurrentQuestion()
 end sub 
