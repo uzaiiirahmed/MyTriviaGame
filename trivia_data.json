@@ -2,7 +2,7 @@
   {
     "title": "General Knowledge",
     "description": "Test your general knowledge!",
-    "image": "pkg:/images/correct_bg.png",
+    "image": "pkg:/images/TriviaTaster.png",
     "questions": [
       {
         "question": "What is the capital of France?",
@@ -19,7 +19,7 @@
   {
     "title": "Science",
     "description": "Explore the wonders of science.",
-    "image": "pkg:/images/correct_bg.png",
+    "image": "pkg:/images/AmericanAdventure.png", 
     "questions": [
       {
         "question": "What planet is known as the Red Planet?",
@@ -36,7 +36,7 @@
   {
     "title": "History",
     "description": "Dive into historical facts.",
-    "image": "pkg:/images/correct_bg.png",
+    "image": "pkg:/images/Sports.png",
     "questions": [
       {
         "question": "Who was the first President of the United States?",
@@ -53,7 +53,7 @@
   {
     "title": "Geography",
     "description": "World, countries, and places.",
-    "image":"pkg:/images/correct_bg.png",
+    "image":"pkg:/images/BrainyBasics.png",
     "questions": [
       {
         "question": "Which is the largest ocean?",
@@ -70,7 +70,7 @@
   {
     "title": "Sports",
     "description": "For the sports enthusiasts.",
-    "image": "pkg:/images/correct_bg.png",
+    "image": "pkg:/images/5thGrader.png",
     "questions": [
       {
         "question": "How many players in a soccer team?",
@@ -87,7 +87,7 @@
   {
     "title": "Movies",
     "description": "Cinema and film trivia.",
-    "image": "pkg:/images/correct_bg.png",
+    "image": "pkg:/images/TheGreat.png",
     "questions": [
       {
         "question": "Who directed 'Jurassic Park'?",
@@ -104,7 +104,7 @@
   {
     "title": "Music",
     "description": "Notes, artists, and songs.",
-    "image": "pkg:/images/correct_bg.png",
+    "image": "pkg:/images/RiddleMe.png",
     "questions": [
       {
         "question": "Who is known as the King of Pop?",
@@ -121,7 +121,7 @@
   {
     "title": "Literature",
     "description": "Books and famous authors.",
-    "image": "pkg:/images/correct_bg.png",
+    "image": "pkg:/images/Pop.png",
     "questions": [
       {
         "question": "Who wrote 'Romeo and Juliet'?",
@@ -138,7 +138,7 @@
   {
     "title": "Technology",
     "description": "Gadgets, IT, and more.",
-    "image": "pkg:/images/correct_bg.png",
+    "image": "pkg:/images/Legends.png",
     "questions": [
       {
         "question": "What does 'CPU' stand for?",
@@ -155,7 +155,7 @@
   {
     "title": "Food & Drink",
     "description": "Culinary questions.",
-    "image": "pkg:/images/correct_bg.png"   ,
+    "image": "pkg:/images/Kids.png"   ,
     "questions": [
       {
         "question": "Which fruit is used to make wine?",
