@@ -31,7 +31,8 @@
             itemSpacing="[20, 0]"
             numColumns="3"
             numRows="1"
-            vertFocusAnimationStyle="fixedFocus"
+            horizFocusAnimationStyle="fixedFocus"
+            focusX="396"
         />
         <Label
             id="descLabel"

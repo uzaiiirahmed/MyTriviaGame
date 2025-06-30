@@ -1,5 +1,15 @@
 sub init()
     m.top.observeField("itemContent", "onItemContentChange")
+    m.top.observeField("state", "onStateChange")
+    m.border = m.top.findNode("border")
+end sub
+
+sub onStateChange()
+    if m.top.state = "focused"
+        m.border.color = "0xFFD700FF" ' Yellow
+    else if m.top.state = "unfocused"
+        m.border.color = "0x555555FF" ' Original Gray
+    end if
 end sub
 
 sub onItemContentChange()
