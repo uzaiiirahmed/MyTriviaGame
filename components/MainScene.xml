@@ -25,14 +25,14 @@
         />
         <MarkupList
             id="triviaList"
-            translation="[83, 113]"
+            translation="[82, 160]"
             itemComponentName="TriviaItem"
-            itemSize="[358, 494]"
+            itemSize="[264, 386]"
             itemSpacing="[20, 0]"
-            numColumns="3"
+            numColumns="4"
             numRows="1"
             horizFocusAnimationStyle="fixedFocus"
-            focusX="378"
+            focusX="426"
         />
         <Label
             id="descLabel"

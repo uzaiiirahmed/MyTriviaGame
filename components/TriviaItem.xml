@@ -7,44 +7,44 @@
     <children>
         <Rectangle
             id="background"
-            width="358"
-            height="494"
+            width="264"
+            height="386"
             color="0x333333FF">
             <Rectangle
                 id="border"
-                width="358"
-                height="358"
+                width="264"
+                height="264"
                 translation="[0,0]"
                 color="0x555555FF">
                 <Poster
                     id="poster"
-                    width="350"
-                    height="350"
+                    width="256"
+                    height="256"
                     translation="[4,4]"
                 />
             </Rectangle>
             <Label
                 id="title"
-                width="350"
+                width="256"
                 height="24"
-                translation="[4, 362]"
+                translation="[4, 268]"
                 font="font:MediumBoldSystemFont"
                 horizAlign="left"
             />
             <Label
                 id="progress"
-                width="350"
+                width="256"
                 height="24"
-                translation="[4, 386]"
+                translation="[4, 300]"
                 font="font:SmallSystemFont"
                 horizAlign="left"
                 text="0/10 Complete"
             />
             <Label
                 id="description"
-                width="350"
-                height="72"
-                translation="[4, 410]"
+                width="256"
+                height="54"
+                translation="[4, 332]"
                 font="font:SmallSystemFont"
                 horizAlign="left"
                 wrap="true"
