@@ -10,26 +10,30 @@
             id="bgRect"
             width="1280"
             height="720"
-            color="0x000000FF"
+            color="0x1D1D1DFF"
         />
         <Label
             id="titleLabel"
             text="Trivia Quest"
-            translation="[0, 100]"
+            translation="[0, 50]"
             width="1280"
             height="100"
             horizAlign="center"
             vertAlign="center"
+            font="font:LargeBoldSystemFont"
             color="0xFFFFFFFF"
         />
-        <LabelList
+        <MarkupList
             id="triviaList"
-            translation="[440, 220]"
-            itemSize="[400, 60]"
-            color="0xFFFFFFFF"
-            focusBitmapUri=""
-            focusedColor="0xFFD700FF"
-            focusable="true"
+            translation="[80, 220]"
+            itemComponentName="TriviaItem"
+            itemSize="[328, 228]"
+            itemSpacing="[20, 0]"
+            numColumns="3"
+            numRows="1"
+            vertFocusAnimationStyle="fixedFocus"
+            width="1200"
+            height="230"
         />
         <Label
             id="descLabel"

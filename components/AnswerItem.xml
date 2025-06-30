@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="AnswerItem" extends="Label">
+    <interface>
+        <field id="isCorrect" type="boolean" />
+        <field id="isSelected" type="boolean" />
+        <field id="text" type="string" />
+    </interface>
+    <script type="text/brightscript" uri="AnswerItem.brs" />
+</component> 

@@ -31,11 +31,14 @@ sub init()
     for each t in m.triviaTypes
         item = CreateObject("roSGNode", "ContentNode")
         item.title = t.title
+        item.description = t.description
+        item.posterUrl = t.image
         listContent.appendChild(item)
     end for
     m.triviaList.content = listContent
     m.triviaList.setFocus(true)
-    m.triviaList.ObserveField("itemSelected", "onTriviaSelected")
+    m.triviaList.observeField("itemFocused", "onItemFocused")
+    m.triviaList.observeField("itemSelected", "onTriviaSelected")
 end sub
 
 sub onItemFocused()
@@ -47,15 +50,13 @@ end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if press then
-        ' Forward navigation keys to the list
-        if key = "up" or key = "down" or key = "left" or key = "right" then
-            return m.triviaList.onKeyEvent(key, press)
-        end if
         if key = "OK" then
             idx = m.triviaList.itemFocused
-            print "[MainScene] - OK pressed. Sending trivia selection signal for item: " + stri(idx)
-            m.top.selectedTrivia = m.triviaTypes[idx]
-            return true
+            if idx >= 0 and idx < m.triviaTypes.count()
+                print "[MainScene] - OK pressed. Sending trivia selection signal for item: " + stri(idx)
+                m.top.selectedTrivia = m.triviaTypes[idx]
+                return true
+            end if
         end if
     end if
     return false

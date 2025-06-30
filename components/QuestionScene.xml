@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<component name="QuestionScene" extends="Group">
+<component name="QuestionScene" extends="Group" focusable="true">
     <interface>
         <field id="trivia" type="assocarray" onChange="onTriviaChanged" />
         <field id="backToMain" type="boolean" alwaysNotify="true" />
@@ -32,11 +32,13 @@
         />
         <LabelList
             id="answerList"
-            translation="[440, 300]"
-            itemSize="[400, 60]"
+            translation="[304, 300]"
+            itemSize="[672, 90]"
             color="0xFFFFFFFF"
             focusedColor="0xFFD700FF"
             focusable="true"
+            itemComponentName="AnswerItem"
+            focusBitmapUri=""
         />
         <Label
             id="feedbackLabel"
