@@ -8,7 +8,7 @@
         <Rectangle
             id="background"
             width="358"
-            height="414"
+            height="494"
             color="0x333333FF">
             <Rectangle
                 id="border"
@@ -39,6 +39,15 @@
                 font="font:SmallSystemFont"
                 horizAlign="left"
                 text="0/10 Complete"
+            />
+            <Label
+                id="description"
+                width="350"
+                height="72"
+                translation="[4, 410]"
+                font="font:SmallSystemFont"
+                horizAlign="left"
+                wrap="true"
             />
         </Rectangle>
     </children>

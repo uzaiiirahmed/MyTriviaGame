@@ -17,6 +17,7 @@ sub onItemContentChange()
     if itemContent <> invalid
         m.top.findNode("title").text = itemContent.title
         m.top.findNode("poster").uri = itemContent.HDPosterUrl
+        m.top.findNode("description").text = itemContent.description
         ' The design shows a progress text and description.
         ' The progress is hardcoded in the XML for now.
         ' The description of the focused item is shown at the bottom of the screen in MainScene.

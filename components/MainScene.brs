@@ -1,7 +1,6 @@
 sub init()
     m.titleLabel = m.top.findNode("titleLabel")
     m.triviaList = m.top.findNode("triviaList")
-    m.descLabel = m.top.findNode("descLabel")
 
     m.triviaTypes = []
     ' Load trivia data from JSON file
@@ -21,9 +20,6 @@ sub init()
 
     if m.triviaTypes.count() = 0
         m.triviaTypes = [{ title: "No Data", description: "No trivia data found.", question: "", answers: [] }]
-        m.descLabel.text = "No trivia data found."
-    else
-        m.descLabel.text = m.triviaTypes[0].description
     end if
 
     ' Create a ContentNode for the list
@@ -37,15 +33,7 @@ sub init()
     end for
     m.triviaList.content = listContent
     m.triviaList.setFocus(true)
-    m.triviaList.observeField("itemFocused", "onItemFocused")
     m.triviaList.observeField("itemSelected", "onTriviaSelected")
-end sub
-
-sub onItemFocused()
-    idx = m.triviaList.itemFocused
-    if idx >= 0 and idx < m.triviaTypes.count()
-        m.descLabel.text = m.triviaTypes[idx].description
-    end if
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean

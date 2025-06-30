@@ -25,9 +25,9 @@
         />
         <MarkupList
             id="triviaList"
-            translation="[83, 153]"
+            translation="[83, 113]"
             itemComponentName="TriviaItem"
-            itemSize="[358, 414]"
+            itemSize="[358, 494]"
             itemSpacing="[20, 0]"
             numColumns="3"
             numRows="1"
