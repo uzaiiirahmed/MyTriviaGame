@@ -32,7 +32,7 @@ sub init()
         item = CreateObject("roSGNode", "ContentNode")
         item.title = t.title
         item.description = t.description
-        item.posterUrl = t.image
+        item.HDPosterUrl = t.image
         listContent.appendChild(item)
     end for
     m.triviaList.content = listContent

@@ -32,8 +32,6 @@
             numColumns="3"
             numRows="1"
             vertFocusAnimationStyle="fixedFocus"
-            width="1200"
-            height="230"
         />
         <Label
             id="descLabel"
