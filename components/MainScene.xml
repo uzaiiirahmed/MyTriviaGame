@@ -29,7 +29,7 @@
             itemComponentName="TriviaItem"
             itemSize="[328, 228]"
             itemSpacing="[20, 0]"
-            numColumns="3"
+            numColumns="4"
             numRows="1"
             horizFocusAnimationStyle="fixedFocus"
             focusX="396"
