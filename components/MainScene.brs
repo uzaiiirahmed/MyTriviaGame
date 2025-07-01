@@ -1,5 +1,4 @@
 sub init()
-    m.titleLabel = m.top.findNode("titleLabel")
     m.triviaList = m.top.findNode("triviaList")
 
     m.triviaTypes = []

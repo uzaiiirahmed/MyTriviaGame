@@ -12,16 +12,12 @@
             height="720"
             color="0x1D1D1DFF"
         />
-        <Label
-            id="titleLabel"
-            text="Trivia Quest"
-            translation="[0, 50]"
-            width="1280"
+        <Poster
+            id="titleImage"
+            uri="pkg:/images/Title.png"
+            width="200"
             height="100"
-            horizAlign="center"
-            vertAlign="center"
-            font="font:LargeBoldSystemFont"
-            color="0xFFFFFFFF"
+            translation="[540, 30]"
         />
         <MarkupList
             id="triviaList"
@@ -31,8 +27,6 @@
             itemSpacing="[20, 0]"
             numColumns="4"
             numRows="1"
-            horizFocusAnimationStyle="fixedFocus"
-            focusX="426"
         />
         <Label
             id="descLabel"

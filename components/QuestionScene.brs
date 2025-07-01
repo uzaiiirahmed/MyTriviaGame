@@ -1,46 +1,39 @@
+' QuestionScene.brs - rewritten for modern UI and robust logic
+
 sub init()
     m.titleLabel = m.top.findNode("titleLabel")
     m.questionLabel = m.top.findNode("questionLabel")
     m.answerList = m.top.findNode("answerList")
+    m.feedbackLabel = m.top.findNode("feedbackLabel")
+    m.sideImage = m.top.findNode("sideImage")
     m.currentQuestionIndex = 0
     m.trivia = invalid
+    m.questions = []
+    m.correctIndex = -1
+    m.answered = false
 end sub
 
 sub onTriviaChanged()
-    m.currentQuestionIndex = 0
     m.trivia = m.top.trivia
+    m.currentQuestionIndex = 0
     showCurrentQuestion()
-end sub
-
-sub showCurrentQuestion()
-    if m.trivia = invalid return
-    questions = m.trivia.questions
-    if m.currentQuestionIndex >= questions.count()
-        m.titleLabel.text = "Quiz Complete!"
-        m.questionLabel.text = "You finished all questions."
-        m.answerList.content = CreateObject("roSGNode", "ContentNode")
-        return
-    end if
-    q = questions[m.currentQuestionIndex]
-    m.titleLabel.text = m.trivia.title
-    m.questionLabel.text = q.question
-
-    listContent = CreateObject("roSGNode", "ContentNode")
-    for i = 0 to q.answers.count() - 1
-        item = CreateObject("roSGNode", "ContentNode")
-        item.text = q.answers[i]
-        item.isSelected = false
-        item.isCorrect = (i = q.correctIndex)
-        listContent.appendChild(item)
-    end for
-    m.answerList.content = listContent
-    m.answerList.setFocus(true)
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if press then
         if key = "OK" then
-            onAnswerSelected()
+            idx = m.answerList.getFocusedItem()
+            selected = m.answerList.content.getChild(idx).title
+            print "Selected answer: " + selected
+            if idx = m.trivia.questions[m.currentQuestionIndex].correctIndex
+                m.feedbackLabel.text = "Correct!"
+            else
+                m.feedbackLabel.text = "Wrong!"
+            end if
+            ' Move to next question after 1.5s
+            sleep(1500)
+            m.currentQuestionIndex = m.currentQuestionIndex + 1
+            showCurrentQuestion()
             return true
         else if key = "back" then
             m.top.backToMain = true
@@ -50,32 +43,62 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     return false
 end function
 
-sub onNextQuestionTimer()
-    if m.nextTimer <> invalid then m.nextTimer.control = "stop"
-    m.currentQuestionIndex = m.currentQuestionIndex + 1
-    showCurrentQuestion()
+sub showCurrentQuestion()
+    trivia = m.trivia
+    idx = m.currentQuestionIndex
+    if trivia <> invalid and trivia.questions.count() > idx
+        q = trivia.questions[idx]
+        m.titleLabel.text = trivia.title
+        m.questionLabel.text = q.question
+
+        ' Populate answers
+        answers = q.answers
+        listContent = CreateObject("roSGNode", "ContentNode")
+        for each a in answers
+            item = CreateObject("roSGNode", "ContentNode")
+            item.title = a
+            listContent.appendChild(item)
+        end for
+        m.answerList.content = listContent
+        m.feedbackLabel.text = ""
+    else
+        m.titleLabel.text = trivia.title
+        m.questionLabel.text = "Quiz Complete!"
+        m.answerList.content = CreateObject("roSGNode", "ContentNode")
+        m.feedbackLabel.text = ""
+    end if
 end sub
 
 sub onAnswerSelected()
     idx = m.answerList.itemFocused
-    questions = m.trivia.questions
-    q = questions[m.currentQuestionIndex]
-    listContent = m.answerList.content
-    for i = 0 to listContent.getChildCount() - 1
-        item = listContent.getChild(i)
-        item.isSelected = (i = idx)
-        item.isCorrect = (i = q.correctIndex)
-        listContent.updateChild(i, item)
+    if m.answered return
+    m.answered = true
+    options = m.answerList.content
+    for i = 0 to options.count() - 1
+        options[i].isSelected = (i = idx)
     end for
-    m.answerList.content = listContent
-    m.answerList.itemFocused = idx
-    sleep(500)
-    if m.nextTimer = invalid then
-        m.nextTimer = CreateObject("roSGNode", "Timer")
-        m.nextTimer.duration = 2.0
-        m.nextTimer.control = "stop"
-        m.top.appendChild(m.nextTimer)
-        m.nextTimer.ObserveField("fire", "onNextQuestionTimer")
+    m.answerList.content = options
+    if idx = m.correctIndex then
+        m.feedbackLabel.text = "Correct!"
+    else
+        m.feedbackLabel.text = "Wrong!"
     end if
-    m.nextTimer.control = "start"
+    ' Move to next question after 1.5s
+    sleep(1500)
+    m.currentQuestionIndex = m.currentQuestionIndex + 1
+    showCurrentQuestion()
+end sub
+
+sub showFunFactScreen(q as Object)
+    ' Placeholder: show fun fact logic here
+    m.questionLabel.text = "Fun Fact: " + q.funfact
+    ' After a delay, go to next question
+    sleep(2000)
+    onNextQuestionTimer()
+end sub
+
+sub onNextQuestionTimer()
+    if m.nextTimer <> invalid then m.nextTimer.control = "stop"
+    m.currentQuestionIndex = m.currentQuestionIndex + 1
+    showCurrentQuestion()
 end sub 
