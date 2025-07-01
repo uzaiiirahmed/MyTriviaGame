@@ -22,8 +22,11 @@ end sub
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if press then
         if key = "OK" then
-            idx = m.answerList.getFocusedItem()
-            selected = m.answerList.content.getChild(idx).title
+            idx = m.answerList.itemFocused
+            if idx < 0 then return false
+            content = m.answerList.content
+            if content = invalid or content.getChildCount() = 0 then return false
+            selected = content.getChild(idx).title
             print "Selected answer: " + selected
             if idx = m.trivia.questions[m.currentQuestionIndex].correctIndex
                 m.feedbackLabel.text = "Correct!"
@@ -60,6 +63,8 @@ sub showCurrentQuestion()
             listContent.appendChild(item)
         end for
         m.answerList.content = listContent
+        m.answerList.itemFocused = 0
+        m.answerList.setFocus(true)
         m.feedbackLabel.text = ""
     else
         m.titleLabel.text = trivia.title
