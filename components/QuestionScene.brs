@@ -26,13 +26,23 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             if idx < 0 then return false
             content = m.answerList.content
             if content = invalid or content.getChildCount() = 0 then return false
-            selected = content.getChild(idx).title
-            print "Selected answer: " + selected
-            if idx = m.trivia.questions[m.currentQuestionIndex].correctIndex
+            ' Reset all
+            for i = 0 to content.getChildCount() - 1
+                item = content.getChild(i)
+                item.isSelected = false
+                item.isIncorrect = false
+                content.updateChild(i, item)
+            end for
+            item = content.getChild(idx)
+            if idx = m.trivia.questions[m.currentQuestionIndex].correctIndex then
+                item.isSelected = true
                 m.feedbackLabel.text = "Correct!"
             else
+                item.isIncorrect = true
                 m.feedbackLabel.text = "Wrong!"
             end if
+            content.updateChild(idx, item)
+            m.answerList.content = content
             ' Move to next question after 1.5s
             sleep(1500)
             m.currentQuestionIndex = m.currentQuestionIndex + 1
@@ -57,19 +67,25 @@ sub showCurrentQuestion()
         ' Populate answers
         answers = q.answers
         listContent = CreateObject("roSGNode", "ContentNode")
-        for each a in answers
+        for i = 0 to answers.count() - 1
             item = CreateObject("roSGNode", "ContentNode")
-            item.title = a
+            item.title = answers[i]
+            item.isSelected = false
+            item.isIncorrect = false
             listContent.appendChild(item)
         end for
         m.answerList.content = listContent
         m.answerList.itemFocused = 0
         m.answerList.setFocus(true)
+        if listContent.getChildCount() = 0
+            m.answerList.setFocus(false)
+        end if
         m.feedbackLabel.text = ""
     else
         m.titleLabel.text = trivia.title
         m.questionLabel.text = "Quiz Complete!"
         m.answerList.content = CreateObject("roSGNode", "ContentNode")
+        m.answerList.setFocus(false)
         m.feedbackLabel.text = ""
     end if
 end sub
