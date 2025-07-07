@@ -54,6 +54,11 @@ sub showCurrentQuestion()
         m.titleLabel.text = trivia.title
         m.questionLabel.text = q.question
 
+        ' Set the side image from trivia data
+        if m.sideImage <> invalid and trivia.image <> invalid
+            m.sideImage.uri = trivia.image
+        end if
+
         ' Populate answers
         answers = q.answers
         listContent = CreateObject("roSGNode", "ContentNode")
