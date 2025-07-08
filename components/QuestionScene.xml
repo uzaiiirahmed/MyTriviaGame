@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="QuestionScene" extends="Group">
+    <interface>
+        <field id="trivia" type="assocarray" onChange="onTriviaChanged" />
+        <field id="backToMain" type="boolean" alwaysNotify="true" />
+    </interface>
+    <children>
+        <Rectangle width="1280" height="720" color="0x000000FF" />
+        <Label id="titleLabel" text="" translation="[0, 60]" width="1280" height="60" horizAlign="center" vertAlign="center" color="0xFFD700FF" />
+        <Label id="questionLabel" text="" translation="[0, 180]" width="1280" height="80" horizAlign="center" vertAlign="center" color="0xFFFFFFFF" />
+        <LabelList id="answerList" translation="[440, 300]" itemSize="[400, 60]" color="0xFFFFFFFF" focusedColor="0xFF000000" focusBitmapUri="pkg:/images/focus_highlight.png" />
+        <Label id="feedbackLabel" text="" translation="[0, 500]" width="1280" height="60" horizAlign="center" vertAlign="center" color="0xFFD700FF" />
+    </children>
+    <script type="text/brightscript" uri="QuestionScene.brs" />
+</component> 

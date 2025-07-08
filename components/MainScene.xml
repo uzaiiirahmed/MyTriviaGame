@@ -1,16 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<component name="MainScene" extends="Scene">
+<component name="MainScene" extends="Group" focusable="true">
+    <interface>
+        <field id="selectedTrivia" type="assocarray" alwaysNotify="true" />
+    </interface>
     <script type="text/brightscript" uri="MainScene.brs" />
 
     <children>
-        <Label
-            id="titleLabel"
-            text="Welcome to Trivia Game"
-            translation="[100, 100]"
+        <Rectangle
+            id="bgRect"
             width="1280"
             height="720"
+            color="0x1D1D1DFF"
+        />
+        <Poster
+            id="titleImage"
+            uri="pkg:/images/Title.png"
+            width="200"
+            height="100"
+            translation="[540, 30]"
+        />
+        <MarkupList
+            id="triviaList"
+            translation="[82, 160]"
+            itemComponentName="TriviaItem"
+            itemSize="[264, 386]"
+            itemSpacing="[20, 0]"
+            numColumns="4"
+            numRows="1"
+        />
+        <Label
+            id="descLabel"
+            text=""
+            translation="[0, 600]"
+            width="1280"
+            height="80"
             horizAlign="center"
-            font="Medium"
+            vertAlign="center"
+            color="0xFFD700FF"
         />
     </children>
 </component>

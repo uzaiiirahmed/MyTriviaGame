@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="ImageTestScene" extends="Scene">
+    <children>
+        <Poster
+            id="testPoster"
+            width="672"
+            height="90"
+            uri="pkg:/images/correct_bg.png"
+            translation="[300, 300]"
+        />
+    </children>
+</component> 

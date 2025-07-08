@@ -1,8 +1,15 @@
+# App Name
 title=My Trivia Quest
-subtitle=A fun trivia game
+
+# App Version
 major_version=1
 minor_version=0
-build_version=00001
-mm_icon_focus_hd=pkg:/images/app_icon_hd.png
+build_version=1
+
+# UI Resolutions
+ui_resolutions=hd
+
+# Splash Screen
+splash_screen_hd=pkg:/images/app_icon_hd.png
 
 

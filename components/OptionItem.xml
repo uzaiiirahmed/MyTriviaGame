@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="OptionItem" extends="Group">
+    <interface>
+        <field id="title" type="string" />
+        <field id="isSelected" type="boolean" />
+    </interface>
+    <children>
+        <Rectangle id="bg" width="600" height="60" color="0x222222FF" radius="15" />
+        <Label id="optionLabel" text="" translation="[20, 10]" width="560" height="40" horizAlign="left" vertAlign="center" color="0xFFFFFFFF" />
+    </children>
+    <script type="text/brightscript" uri="OptionItem.brs" />
+</component> 
