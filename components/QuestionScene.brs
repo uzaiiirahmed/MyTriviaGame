@@ -13,6 +13,7 @@ sub init()
     m.correctIndex = -1
     m.answered = false
     m.attempts = 0
+    m.funFactPanel = invalid
 end sub
 
 sub onTriviaChanged()
@@ -36,7 +37,8 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
                 m.answerList.focusBitmapUri = "pkg:/images/correct.png"
                 m.answerList.setFocus(false)
                 m.answerList.setFocus(true)
-                startNextQuestionTimer()
+                q = m.trivia.questions[m.currentQuestionIndex]
+                showFunFactScreen(q)
             else
                 m.attempts = m.attempts + 1
                 if m.attempts = 1
@@ -52,7 +54,8 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
                     m.answerList.focusBitmapUri = "pkg:/images/wrong.png"
                     m.answerList.setFocus(false)
                     m.answerList.setFocus(true)
-                    startNextQuestionTimer()
+                    q = m.trivia.questions[m.currentQuestionIndex]
+                    showFunFactScreen(q)
                 end if
             end if
             return true
@@ -138,17 +141,22 @@ sub onAnswerSelected()
 end sub
 
 sub showFunFactScreen(q as Object)
-    ' Placeholder: show fun fact logic here
-    m.questionLabel.text = "Fun Fact: " + q.funfact
-    ' After a delay, go to next question
-    sleep(2000)
-    onNextQuestionTimer()
+    if m.funFactPanel <> invalid then m.top.removeChild(m.funFactPanel)
+    m.funFactPanel = createObject("roSGNode", "FunFactPanel")
+    m.funFactPanel.funfact = q.funfact
+    m.funFactPanel.observeField("onContinue", "onFunFactContinue")
+    m.top.appendChild(m.funFactPanel)
+    m.funFactPanel.setFocus(true)
 end sub
 
-sub onNextQuestionTimer()
-    if m.nextTimer <> invalid then m.nextTimer.control = "stop"
+sub onFunFactContinue()
+    if m.funFactPanel <> invalid then m.top.removeChild(m.funFactPanel)
     m.currentQuestionIndex = m.currentQuestionIndex + 1
     showCurrentQuestion()
+    ' Set focus back to the answerList for the next question
+    if m.answerList <> invalid then
+        m.answerList.setFocus(true)
+    end if
 end sub
 
 sub startNextQuestionTimer()
