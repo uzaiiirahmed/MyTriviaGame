@@ -86,19 +86,25 @@ sub showCurrentQuestion()
         ' Populate answers
         answers = q.answers
         listContent = CreateObject("roSGNode", "ContentNode")
-        for each a in answers
+        for i = 0 to answers.count() - 1
             item = CreateObject("roSGNode", "ContentNode")
-            item.title = a
+            item.title = answers[i]
+            item.isSelected = false
+            item.isIncorrect = false
             listContent.appendChild(item)
         end for
         m.answerList.content = listContent
         m.answerList.itemFocused = 0
         m.answerList.setFocus(true)
+        if listContent.getChildCount() = 0
+            m.answerList.setFocus(false)
+        end if
         m.feedbackLabel.text = ""
     else
         m.titleLabel.text = trivia.title
         m.questionLabel.text = "Quiz Complete!"
         m.answerList.content = CreateObject("roSGNode", "ContentNode")
+        m.answerList.setFocus(false)
         m.feedbackLabel.text = ""
         if m.feedbackIcon <> invalid then
             m.feedbackIcon.uri = ""

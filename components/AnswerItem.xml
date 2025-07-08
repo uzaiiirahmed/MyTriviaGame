@@ -3,7 +3,6 @@
     <interface>
         <field id="title" type="string" />
         <field id="isSelected" type="boolean" />
-        <field id="isCorrect" type="boolean" />
         <field id="isIncorrect" type="boolean" />
     </interface>
     <script type="text/brightscript" uri="AnswerItem.brs" />
