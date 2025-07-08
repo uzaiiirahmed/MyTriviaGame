@@ -12,6 +12,7 @@ sub init()
     m.questions = []
     m.correctIndex = -1
     m.answered = false
+    m.attempts = 0
 end sub
 
 sub onTriviaChanged()
@@ -30,27 +31,30 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             selected = content.getChild(idx).title
             print "Selected answer: " + selected
             if idx = m.trivia.questions[m.currentQuestionIndex].correctIndex
-                m.answerList.focusBitmapUri = "pkg:/images/correct.png"
-                print "Set focus image to correct"
-                m.answerList.setFocus(false)
-                m.answerList.setFocus(true)
                 m.feedbackLabel.text = "Correct!"
                 m.feedbackIcon.uri = "pkg:/images/correct_icon.png"
-            else
-                m.answerList.focusBitmapUri = "pkg:/images/wrong.png"
-                print "Set focus image to wrong"
+                m.answerList.focusBitmapUri = "pkg:/images/correct.png"
                 m.answerList.setFocus(false)
                 m.answerList.setFocus(true)
-                m.feedbackLabel.text = "Wrong!"
-                m.feedbackIcon.uri = "pkg:/images/wrong_icon.png"
+                startNextQuestionTimer()
+            else
+                m.attempts = m.attempts + 1
+                if m.attempts = 1
+                    m.feedbackLabel.text = "Wrong! Try again"
+                    m.feedbackIcon.uri = "pkg:/images/wrong_icon.png"
+                    m.answerList.focusBitmapUri = "pkg:/images/wrong.png"
+                    m.answerList.setFocus(false)
+                    m.answerList.setFocus(true)
+                    startFeedbackClearTimer()
+                else
+                    m.feedbackLabel.text = "Wrong!"
+                    m.feedbackIcon.uri = "pkg:/images/wrong_icon.png"
+                    m.answerList.focusBitmapUri = "pkg:/images/wrong.png"
+                    m.answerList.setFocus(false)
+                    m.answerList.setFocus(true)
+                    startNextQuestionTimer()
+                end if
             end if
-            ' Use a timer instead of sleep to allow UI update
-            if m.nextTimer <> invalid then m.nextTimer.control = "stop"
-            m.nextTimer = createObject("roSGNode", "Timer")
-            m.nextTimer.duration = 1.5
-            m.nextTimer.observeField("fire", "onNextQuestionTimer")
-            m.top.appendChild(m.nextTimer)
-            m.nextTimer.control = "start"
             return true
         else if key = "back" then
             m.top.backToMain = true
@@ -63,6 +67,7 @@ end function
 sub showCurrentQuestion()
     trivia = m.trivia
     idx = m.currentQuestionIndex
+    m.attempts = 0
     if trivia <> invalid and trivia.questions.count() > idx
         q = trivia.questions[idx]
         m.titleLabel.text = trivia.title
@@ -144,4 +149,33 @@ sub onNextQuestionTimer()
     if m.nextTimer <> invalid then m.nextTimer.control = "stop"
     m.currentQuestionIndex = m.currentQuestionIndex + 1
     showCurrentQuestion()
+end sub
+
+sub startNextQuestionTimer()
+    if m.nextTimer <> invalid then m.nextTimer.control = "stop"
+    m.nextTimer = createObject("roSGNode", "Timer")
+    m.nextTimer.duration = 1.5
+    m.nextTimer.observeField("fire", "onNextQuestionTimer")
+    m.top.appendChild(m.nextTimer)
+    m.nextTimer.control = "start"
+end sub
+
+sub startFeedbackClearTimer()
+    if m.feedbackTimer <> invalid then m.feedbackTimer.control = "stop"
+    m.feedbackTimer = createObject("roSGNode", "Timer")
+    m.feedbackTimer.duration = 1.5
+    m.feedbackTimer.observeField("fire", "onFeedbackClearTimer")
+    m.top.appendChild(m.feedbackTimer)
+    m.feedbackTimer.control = "start"
+end sub
+
+sub onFeedbackClearTimer()
+    if m.feedbackTimer <> invalid then m.feedbackTimer.control = "stop"
+    m.feedbackLabel.text = ""
+    m.feedbackIcon.uri = ""
+    if m.answerList <> invalid then
+        m.answerList.focusBitmapUri = "pkg:/images/focus_highlight.png"
+        m.answerList.setFocus(false)
+        m.answerList.setFocus(true)
+    end if
 end sub 
