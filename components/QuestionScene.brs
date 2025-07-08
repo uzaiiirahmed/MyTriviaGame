@@ -6,6 +6,7 @@ sub init()
     m.answerList = m.top.findNode("answerList")
     m.feedbackLabel = m.top.findNode("feedbackLabel")
     m.sideImage = m.top.findNode("sideImage")
+    m.feedbackIcon = m.top.findNode("feedbackIcon")
     m.currentQuestionIndex = 0
     m.trivia = invalid
     m.questions = []
@@ -26,27 +27,30 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             if idx < 0 then return false
             content = m.answerList.content
             if content = invalid or content.getChildCount() = 0 then return false
-            ' Reset all
-            for i = 0 to content.getChildCount() - 1
-                item = content.getChild(i)
-                item.isSelected = false
-                item.isIncorrect = false
-                content.updateChild(i, item)
-            end for
-            item = content.getChild(idx)
-            if idx = m.trivia.questions[m.currentQuestionIndex].correctIndex then
-                item.isSelected = true
+            selected = content.getChild(idx).title
+            print "Selected answer: " + selected
+            if idx = m.trivia.questions[m.currentQuestionIndex].correctIndex
+                m.answerList.focusBitmapUri = "pkg:/images/correct.png"
+                print "Set focus image to correct"
+                m.answerList.setFocus(false)
+                m.answerList.setFocus(true)
                 m.feedbackLabel.text = "Correct!"
+                m.feedbackIcon.uri = "pkg:/images/correct_icon.png"
             else
-                item.isIncorrect = true
+                m.answerList.focusBitmapUri = "pkg:/images/wrong.png"
+                print "Set focus image to wrong"
+                m.answerList.setFocus(false)
+                m.answerList.setFocus(true)
                 m.feedbackLabel.text = "Wrong!"
+                m.feedbackIcon.uri = "pkg:/images/wrong_icon.png"
             end if
-            content.updateChild(idx, item)
-            m.answerList.content = content
-            ' Move to next question after 1.5s
-            sleep(1500)
-            m.currentQuestionIndex = m.currentQuestionIndex + 1
-            showCurrentQuestion()
+            ' Use a timer instead of sleep to allow UI update
+            if m.nextTimer <> invalid then m.nextTimer.control = "stop"
+            m.nextTimer = createObject("roSGNode", "Timer")
+            m.nextTimer.duration = 1.5
+            m.nextTimer.observeField("fire", "onNextQuestionTimer")
+            m.top.appendChild(m.nextTimer)
+            m.nextTimer.control = "start"
             return true
         else if key = "back" then
             m.top.backToMain = true
@@ -63,6 +67,21 @@ sub showCurrentQuestion()
         q = trivia.questions[idx]
         m.titleLabel.text = trivia.title
         m.questionLabel.text = q.question
+
+        ' Set the side image from trivia data
+        if m.sideImage <> invalid and trivia.image <> invalid
+            m.sideImage.uri = trivia.image
+        end if
+
+        ' Reset feedback icon
+        if m.feedbackIcon <> invalid then
+            m.feedbackIcon.uri = ""
+        end if
+
+        ' Reset focus highlight to default
+        if m.answerList <> invalid then
+            m.answerList.focusBitmapUri = "pkg:/images/focus_highlight.png"
+        end if
 
         ' Populate answers
         answers = q.answers
@@ -87,6 +106,9 @@ sub showCurrentQuestion()
         m.answerList.content = CreateObject("roSGNode", "ContentNode")
         m.answerList.setFocus(false)
         m.feedbackLabel.text = ""
+        if m.feedbackIcon <> invalid then
+            m.feedbackIcon.uri = ""
+        end if
     end if
 end sub
 
