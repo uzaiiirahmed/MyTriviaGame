@@ -36,6 +36,17 @@ end sub
 sub onSubscribe()
     print "[Router] - User chose to subscribe. Unlocking trivia."
     m.triviaUnlocked = true ' In real app, save to registry
+    ' Unlock all trivia in the main menu
+    triviaListNode = m.mainScene.findNode("triviaList")
+    if triviaListNode <> invalid then
+        listContent = triviaListNode.content
+        for i = 0 to listContent.getChildCount() - 1
+            node = listContent.getChild(i)
+            if node.hasField("isLocked")
+                node.isLocked = false
+            end if
+        end for
+    end if
     m.subscriptionPanel.setFocus(false)
     m.subscriptionPanel.visible = false
     m.mainScene.visible = true
