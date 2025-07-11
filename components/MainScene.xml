@@ -23,8 +23,8 @@
             id="triviaList"
             translation="[82, 160]"
             itemComponentName="TriviaItem"
-            itemSize="[264, 386]"
-            itemSpacing="[20, 0]"
+            itemSize="[244, 366]"
+            itemSpacing="[40, 0]"
             numColumns="4"
             numRows="1"
         />

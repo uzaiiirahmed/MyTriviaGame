@@ -6,12 +6,18 @@
     </interface>
     <children>
         <Rectangle width="1280" height="720" color="0x000000FF" />
-        <Label id="titleLabel" text="" translation="[60, 60]" width="600" height="60" horizAlign="left" vertAlign="center" color="0xFFD700FF" />
-        <Label id="questionLabel" text="" translation="[60, 140]" width="600" height="80" horizAlign="left" vertAlign="center" color="0xFFFFFFFF" />
-        <LabelList id="answerList" translation="[60, 260]" itemSize="[500, 60]" color="0xFFFFFFFF" focusedColor="0xFF00FFFF" focusBitmapUri="pkg:/images/focus_highlight.png" horizAlign="center" vertAlign="center" />
+        <Label id="titleLabel" text="" translation="[60, 60]" width="600" height="60" horizAlign="center" vertAlign="center" color="0xFFD700FF" />
+        <Label id="questionLabel" text="" translation="[60, 140]" width="600" height="80" horizAlign="center" vertAlign="center" color="0xFFFFFFFF" />
+        <LabelList
+            id="answerList"
+            translation="[60, 260]"
+            itemSize="[500, 60]"
+            focusBitmapUri="pkg:/images/focus_highlight.png"
+        />
         <Label id="feedbackLabel" text="" translation="[60, 540]" width="600" height="60" horizAlign="left" vertAlign="center" color="0xFFD700FF" />
         <Poster id="feedbackIcon" translation="[300, 580]" width="100" height="100" uri="" />
         <Poster id="sideImage" translation="[700, 60]" width="500" height="600" uri="" />
+        <Timer id="funFactDelayTimer" duration="1.5" control="stop" />
     </children>
     <script type="text/brightscript" uri="QuestionScene.brs" />
 </component> 

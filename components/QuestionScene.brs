@@ -12,6 +12,15 @@ sub init()
     m.questions = []
     m.correctIndex = -1
     m.answered = false
+    m.attempts = 0
+    m.funFactPanel = invalid
+    m.funFactDelayTimer = m.top.findNode("funFactDelayTimer")
+    if m.funFactDelayTimer <> invalid then
+        m.funFactDelayTimer.observeField("fire", "onFunFactDelayTimerFired")
+    end if
+    m.pendingFunFactQuestion = invalid
+    
+    ' LabelList doesn't support itemComponentName, so we'll use ContentNode with proper color management
 end sub
 
 sub onTriviaChanged()
@@ -30,27 +39,49 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             selected = content.getChild(idx).title
             print "Selected answer: " + selected
             if idx = m.trivia.questions[m.currentQuestionIndex].correctIndex
-                m.answerList.focusBitmapUri = "pkg:/images/correct.png"
-                print "Set focus image to correct"
-                m.answerList.setFocus(false)
-                m.answerList.setFocus(true)
+                print "[QuestionScene] - Correct answer selected!"
                 m.feedbackLabel.text = "Correct!"
                 m.feedbackIcon.uri = "pkg:/images/correct_icon.png"
+                q = m.trivia.questions[m.currentQuestionIndex]
+                ' Store the selected answer index for visual feedback
+                m.selectedAnswerIndex = idx
+                m.isCorrectAnswer = true
+                m.pendingFunFactQuestion = q
+                ' Keep focus on the selected answer during delay
+                m.answerList.itemFocused = idx
+                print "[QuestionScene] - Starting fun fact delay timer..."
+                if m.funFactDelayTimer <> invalid then
+                    m.funFactDelayTimer.control = "start"
+                else
+                    print "[QuestionScene] - No timer, showing fun fact immediately"
+                    showFunFactScreen(q)
+                end if
             else
-                m.answerList.focusBitmapUri = "pkg:/images/wrong.png"
-                print "Set focus image to wrong"
-                m.answerList.setFocus(false)
-                m.answerList.setFocus(true)
-                m.feedbackLabel.text = "Wrong!"
-                m.feedbackIcon.uri = "pkg:/images/wrong_icon.png"
+                m.attempts = m.attempts + 1
+                if m.attempts = 1
+                    m.feedbackLabel.text = "Wrong! Try again"
+                    m.feedbackIcon.uri = "pkg:/images/wrong_icon.png"
+                    startFeedbackClearTimer()
+                else
+                    print "[QuestionScene] - Wrong answer selected (attempt " + stri(m.attempts) + ")"
+                    m.feedbackLabel.text = "Wrong!"
+                    m.feedbackIcon.uri = "pkg:/images/wrong_icon.png"
+                    q = m.trivia.questions[m.currentQuestionIndex]
+                    ' Store the selected answer index for visual feedback
+                    m.selectedAnswerIndex = idx
+                    m.isCorrectAnswer = false
+                    m.pendingFunFactQuestion = q
+                    ' Keep focus on the selected answer during delay
+                    m.answerList.itemFocused = idx
+                    print "[QuestionScene] - Starting fun fact delay timer for wrong answer..."
+                    if m.funFactDelayTimer <> invalid then
+                        m.funFactDelayTimer.control = "start"
+                    else
+                        print "[QuestionScene] - No timer, showing fun fact immediately"
+                        showFunFactScreen(q)
+                    end if
+                end if
             end if
-            ' Use a timer instead of sleep to allow UI update
-            if m.nextTimer <> invalid then m.nextTimer.control = "stop"
-            m.nextTimer = createObject("roSGNode", "Timer")
-            m.nextTimer.duration = 1.5
-            m.nextTimer.observeField("fire", "onNextQuestionTimer")
-            m.top.appendChild(m.nextTimer)
-            m.nextTimer.control = "start"
             return true
         else if key = "back" then
             m.top.backToMain = true
@@ -60,9 +91,21 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     return false
 end function
 
+sub onFunFactDelayTimerFired()
+    print "[QuestionScene] - Fun fact delay timer fired!"
+    if m.pendingFunFactQuestion <> invalid then
+        print "[QuestionScene] - Showing fun fact panel..."
+        showFunFactScreen(m.pendingFunFactQuestion)
+        m.pendingFunFactQuestion = invalid
+    else
+        print "[QuestionScene] - No pending fun fact question!"
+    end if
+end sub
+
 sub showCurrentQuestion()
     trivia = m.trivia
     idx = m.currentQuestionIndex
+    m.attempts = 0
     if trivia <> invalid and trivia.questions.count() > idx
         q = trivia.questions[idx]
         m.titleLabel.text = trivia.title
@@ -89,8 +132,6 @@ sub showCurrentQuestion()
         for i = 0 to answers.count() - 1
             item = CreateObject("roSGNode", "ContentNode")
             item.title = answers[i]
-            item.isSelected = false
-            item.isIncorrect = false
             listContent.appendChild(item)
         end for
         m.answerList.content = listContent
@@ -133,15 +174,59 @@ sub onAnswerSelected()
 end sub
 
 sub showFunFactScreen(q as Object)
-    ' Placeholder: show fun fact logic here
-    m.questionLabel.text = "Fun Fact: " + q.funfact
-    ' After a delay, go to next question
-    sleep(2000)
-    onNextQuestionTimer()
+    print "[QuestionScene] - Creating fun fact panel..."
+    if m.funFactPanel <> invalid then m.top.removeChild(m.funFactPanel)
+    m.funFactPanel = createObject("roSGNode", "FunFactPanel")
+    m.funFactPanel.funfact = q.funfact
+    m.funFactPanel.observeField("onContinue", "onFunFactContinue")
+    m.top.appendChild(m.funFactPanel)
+    m.funFactPanel.setFocus(true)
+    
+    ' Set the focus highlight based on whether the answer was correct
+    if m.isCorrectAnswer then
+        m.answerList.focusBitmapUri = "pkg:/images/correct.png"
+    else
+        m.answerList.focusBitmapUri = "pkg:/images/wrong.png"
+    end if
+    
+    print "[QuestionScene] - Fun fact panel created and focused"
 end sub
 
-sub onNextQuestionTimer()
-    if m.nextTimer <> invalid then m.nextTimer.control = "stop"
+sub onFunFactContinue()
+    if m.funFactPanel <> invalid then m.top.removeChild(m.funFactPanel)
     m.currentQuestionIndex = m.currentQuestionIndex + 1
     showCurrentQuestion()
+    ' Set focus back to the answerList for the next question
+    if m.answerList <> invalid then
+        m.answerList.setFocus(true)
+    end if
+end sub
+
+sub startNextQuestionTimer()
+    if m.nextTimer <> invalid then m.nextTimer.control = "stop"
+    m.nextTimer = createObject("roSGNode", "Timer")
+    m.nextTimer.duration = 1.5
+    m.nextTimer.observeField("fire", "onNextQuestionTimer")
+    m.top.appendChild(m.nextTimer)
+    m.nextTimer.control = "start"
+end sub
+
+sub startFeedbackClearTimer()
+    if m.feedbackTimer <> invalid then m.feedbackTimer.control = "stop"
+    m.feedbackTimer = createObject("roSGNode", "Timer")
+    m.feedbackTimer.duration = 1.5
+    m.feedbackTimer.observeField("fire", "onFeedbackClearTimer")
+    m.top.appendChild(m.feedbackTimer)
+    m.feedbackTimer.control = "start"
+end sub
+
+sub onFeedbackClearTimer()
+    if m.feedbackTimer <> invalid then m.feedbackTimer.control = "stop"
+    m.feedbackLabel.text = ""
+    m.feedbackIcon.uri = ""
+    if m.answerList <> invalid then
+        m.answerList.focusBitmapUri = "pkg:/images/focus_highlight.png"
+        m.answerList.setFocus(false)
+        m.answerList.setFocus(true)
+    end if
 end sub 
