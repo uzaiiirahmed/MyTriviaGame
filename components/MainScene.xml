@@ -2,6 +2,7 @@
 <component name="MainScene" extends="Group" focusable="true">
     <interface>
         <field id="selectedTrivia" type="assocarray" alwaysNotify="true" />
+        <field id="triviaTypes" type="array" />
     </interface>
     <script type="text/brightscript" uri="MainScene.brs" />
 

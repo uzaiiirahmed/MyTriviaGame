@@ -33,6 +33,7 @@ sub init()
     m.triviaList.content = listContent
     m.triviaList.setFocus(true)
     m.triviaList.observeField("itemSelected", "onTriviaSelected")
+    m.top.triviaTypes = m.triviaTypes
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean

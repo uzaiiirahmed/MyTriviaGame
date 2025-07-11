@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="SubscriptionPanel" extends="Group" focusable="true">
+    <interface>
+        <field id="onSubscribe" type="bool" alwaysNotify="true" />
+        <field id="onCancel" type="bool" alwaysNotify="true" />
+    </interface>
+    <script type="text/brightscript" uri="SubscriptionPanel.brs" />
+    <children>
+        <Rectangle id="bg" width="600" height="300" color="0x222222FF" translation="[340, 210]" />
+        <Label id="message" text="Subscribe to unlock all trivia!" width="580" height="60" translation="[350, 230]" horizAlign="center" font="font:MediumBoldSystemFont" color="0xFFD700FF" />
+        <Rectangle id="subscribeBtn" translation="[400, 320]" width="160" height="60" color="0xFFD700FF">
+            <Label id="subscribeLabel" text="Subscribe" width="160" height="60" horizAlign="center" vertAlign="center" color="0x222222FF" />
+        </Rectangle>
+        <Rectangle id="cancelBtn" translation="[600, 320]" width="160" height="60" color="0xCCCCCCFF">
+            <Label id="cancelLabel" text="Cancel" width="160" height="60" horizAlign="center" vertAlign="center" color="0x222222FF" />
+        </Rectangle>
+    </children>
+</component> 

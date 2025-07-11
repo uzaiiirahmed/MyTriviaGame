@@ -4,5 +4,6 @@
     <children>
         <MainScene id="mainScene" />
         <QuestionScene id="questionScene" visible="false" />
+        <SubscriptionPanel id="subscriptionPanel" visible="false" />
     </children>
 </component> 
