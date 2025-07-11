@@ -36,6 +36,7 @@ end sub
 sub onSubscribe()
     print "[Router] - User chose to subscribe. Unlocking trivia."
     m.triviaUnlocked = true ' In real app, save to registry
+    m.subscriptionPanel.setFocus(false)
     m.subscriptionPanel.visible = false
     m.mainScene.visible = true
     m.mainScene.findNode("triviaList").setFocus(true)
@@ -43,6 +44,7 @@ end sub
 
 sub onCancel()
     print "[Router] - User cancelled subscription. Returning to main menu."
+    m.subscriptionPanel.setFocus(false)
     m.subscriptionPanel.visible = false
     m.mainScene.visible = true
     m.mainScene.findNode("triviaList").setFocus(true)
