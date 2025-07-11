@@ -18,6 +18,13 @@ sub onItemContentChange()
         m.top.findNode("title").text = itemContent.title
         m.top.findNode("poster").uri = itemContent.HDPosterUrl
         m.top.findNode("description").text = itemContent.description
+        ' Show lock icon if isLocked is true
+        lockIcon = m.top.findNode("lockIcon")
+        if lockIcon <> invalid and itemContent.isLocked = true
+            lockIcon.visible = true
+        else if lockIcon <> invalid
+            lockIcon.visible = false
+        end if
         ' The design shows a progress text and description.
         ' The progress is hardcoded in the XML for now.
         ' The description of the focused item is shown at the bottom of the screen in MainScene.
