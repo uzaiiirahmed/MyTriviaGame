@@ -25,8 +25,10 @@ sub onItemContentChange()
         else if lockIcon <> invalid
             lockIcon.visible = false
         end if
-        ' The design shows a progress text and description.
-        ' The progress is hardcoded in the XML for now.
-        ' The description of the focused item is shown at the bottom of the screen in MainScene.
+        ' Set progress label
+        progressLabel = m.top.findNode("progress")
+        if progressLabel <> invalid and itemContent.progressText <> invalid
+            progressLabel.text = itemContent.progressText
+        end if
     end if
 end sub 

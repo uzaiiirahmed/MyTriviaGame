@@ -30,6 +30,17 @@ sub onTriviaChanged()
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
+    ' If FunFactPanel is visible, forward key events to it
+    if m.funFactPanel <> invalid and m.funFactPanel.isInFocusChain() then
+        if key = "back" and press then
+            m.top.backToMain = true
+            return true
+        end if
+        if m.funFactPanel.onKeyEvent <> invalid then
+            handled = m.funFactPanel.onKeyEvent(key, press)
+            if handled then return true
+        end if
+    end if
     if press then
         if key = "OK" then
             idx = m.answerList.itemFocused
@@ -106,7 +117,11 @@ sub showCurrentQuestion()
     trivia = m.trivia
     idx = m.currentQuestionIndex
     m.attempts = 0
-    if trivia <> invalid and trivia.questions.count() > idx
+    totalQuestions = 0
+    if trivia <> invalid and trivia.questions <> invalid and type(trivia.questions) = "roArray" then
+        totalQuestions = trivia.questions.count()
+    end if
+    if trivia <> invalid and totalQuestions > 0 and idx < totalQuestions then
         q = trivia.questions[idx]
         m.titleLabel.text = trivia.title
         m.questionLabel.text = q.question
@@ -150,6 +165,7 @@ sub showCurrentQuestion()
         if m.feedbackIcon <> invalid then
             m.feedbackIcon.uri = ""
         end if
+        updateProgress() ' Save progress when quiz is complete
     end if
 end sub
 
@@ -193,12 +209,25 @@ sub showFunFactScreen(q as Object)
 end sub
 
 sub onFunFactContinue()
-    if m.funFactPanel <> invalid then m.top.removeChild(m.funFactPanel)
-    m.currentQuestionIndex = m.currentQuestionIndex + 1
+    if m.funFactPanel <> invalid then
+        m.top.removeChild(m.funFactPanel)
+        m.funFactPanel = invalid
+    end if
+    ' Clamp currentQuestionIndex to max questions
+    totalQuestions = 0
+    if m.trivia <> invalid and m.trivia.questions <> invalid and type(m.trivia.questions) = "roArray" then
+        totalQuestions = m.trivia.questions.count()
+    end if
+    if m.currentQuestionIndex < totalQuestions then
+        m.currentQuestionIndex = m.currentQuestionIndex + 1
+    end if
+    updateProgress() ' Save progress after each question
     showCurrentQuestion()
-    ' Set focus back to the answerList for the next question
-    if m.answerList <> invalid then
+    ' Set focus back to the answerList for the next question if available
+    if m.answerList <> invalid and m.answerList.content.getChildCount() > 0 then
         m.answerList.setFocus(true)
+    else
+        m.top.setFocus(true)
     end if
 end sub
 
@@ -229,4 +258,32 @@ sub onFeedbackClearTimer()
         m.answerList.setFocus(false)
         m.answerList.setFocus(true)
     end if
+end sub 
+
+sub updateProgress()
+    ' Get trivia title and current progress
+    if m.trivia = invalid or m.trivia.title = invalid return
+    title = m.trivia.title
+    progress = {}
+    filePath = "tmp:/tmp.json"
+    ' Try to read existing progress
+    progressStr = ReadAsciiFile(filePath)
+    if progressStr = invalid then progressStr = ""
+    if progressStr <> ""
+        parsed = ParseJson(progressStr)
+        if type(parsed) = "roAssociativeArray"
+            progress = parsed
+        end if
+    end if
+    ' Update progress for this trivia
+    totalQuestions = 0
+    if m.trivia.questions <> invalid and type(m.trivia.questions) = "roArray" then totalQuestions = m.trivia.questions.count() else totalQuestions = 10
+    completed = 0
+    if progress.DoesExist(title) then completed = progress[title] else completed = 0
+    if m.currentQuestionIndex > completed and m.currentQuestionIndex <= totalQuestions
+        progress[title] = m.currentQuestionIndex
+    end if
+    ' Write back to file using WriteAsciiFile
+    jsonStr = FormatJson(progress)
+    WriteAsciiFile(filePath, jsonStr)
 end sub 

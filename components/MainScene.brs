@@ -17,6 +17,16 @@ sub init()
         print "[MainScene] - trivia_data.json not found or could not be read."
     end if
 
+    ' Load progress from tmp:/tmp.json
+    m.progress = {}
+    progressStr = ReadAsciiFile("tmp:/tmp.json")
+    if progressStr <> invalid and progressStr <> ""
+        progressParsed = ParseJson(progressStr)
+        if type(progressParsed) = "roAssociativeArray"
+            m.progress = progressParsed
+        end if
+    end if
+
     if m.triviaTypes.count() = 0
         m.triviaTypes = [{ title: "No Data", description: "No trivia data found.", question: "", answers: [] }]
     end if
@@ -36,12 +46,20 @@ sub init()
         else
             item.isLocked = true
         end if
+        ' Add progress field
+        item.addField("progressText", "string", false)
+        totalQuestions = 0
+        if t.questions <> invalid and type(t.questions) = "roArray" then totalQuestions = t.questions.count() else totalQuestions = 10 ' fallback
+        completed = 0
+        if m.progress.DoesExist(t.title) then completed = m.progress[t.title] else completed = 0
+        item.progressText = completed.tostr() + "/" + totalQuestions.tostr() + " Complete"
         listContent.appendChild(item)
     end for
     m.triviaList.content = listContent
     m.triviaList.setFocus(true)
     m.triviaList.observeField("itemSelected", "onTriviaSelected")
     m.top.triviaTypes = m.triviaTypes
+    m.top.refreshProgress = refreshProgress
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
@@ -70,3 +88,26 @@ sub onTriviaSelected()
         m.top.selectedTrivia = m.triviaTypes[idx]
     end if
 end sub
+
+function refreshProgress() as Void
+    m = m.top ' Ensure m is the component's m.top
+    m.progress = {}
+    progressStr = ReadAsciiFile("tmp:/tmp.json")
+    if progressStr <> invalid and progressStr <> ""
+        progressParsed = ParseJson(progressStr)
+        if type(progressParsed) = "roAssociativeArray"
+            m.progress = progressParsed
+        end if
+    end if
+    listContent = m.triviaList.content
+    for i = 0 to m.triviaTypes.count()-1
+        t = m.triviaTypes[i]
+        item = listContent.getChild(i)
+        totalQuestions = 0
+        if t.questions <> invalid and type(t.questions) = "roArray" then totalQuestions = t.questions.count() else totalQuestions = 10
+        completed = 0
+        if m.progress.DoesExist(t.title) then completed = m.progress[t.title] else completed = 0
+        item.progressText = completed.tostr() + "/" + totalQuestions.tostr() + " Complete"
+    end for
+    m.triviaList.content = listContent
+end function

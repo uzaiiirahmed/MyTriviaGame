@@ -67,7 +67,7 @@ sub onBackToMain()
         m.questionScene.visible = false
         m.mainScene.visible = true
         m.mainScene.findNode("triviaList").setFocus(true)
-
+        m.mainScene.callFunc("refreshProgress") ' Refresh progress when returning to main
         ' Reset field to allow re-triggering
         m.questionScene.backToMain = false
     end if
