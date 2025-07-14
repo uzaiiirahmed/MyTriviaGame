@@ -6,7 +6,9 @@
     </interface>
     <script type="text/brightscript" uri="SubscriptionPanel.brs" />
     <children>
-        <!-- Background image -->
+        <!-- Full screen background image -->
+        <Poster id="fullBg" uri="pkg:/images/subback.png" width="1280" height="720" translation="[0,0]" />
+        <!-- Panel background image -->
         <Poster id="bgImage" uri="pkg:/images/wrong_bg.png" width="600" height="300" translation="[340, 210]" />
         <!-- Unlock icon -->
         <Poster id="unlockIcon" uri="pkg:/images/correct_bg.png" width="80" height="80" translation="[600, 220]" />
