@@ -11,7 +11,7 @@ sub Main()
     m.audioPlayer.SetMessagePort(m.audioPort)
 
     m.audioPlayer.AddContent({
-        url: "pkg:/audio/music.mp3"
+        url: "pkg:/audio/music1.mp3"
     })
 
     m.audioPlayer.SetLoop(true)

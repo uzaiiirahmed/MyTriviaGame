@@ -12,4 +12,6 @@ ui_resolutions=hd
 # Splash Screen
 splash_screen_hd=pkg:/images/app_icon_hd.png
 
+mm_icon_focus_hd=pkg:/images/app_icon_focus_hd.png
+
 
