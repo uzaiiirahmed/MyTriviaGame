@@ -4,66 +4,16 @@
     "description": "Explore iconic moments, landmarks, and heroes in U.S. history.",
     "image": "pkg:/images/TriviaTaster.png",
     "questions": [
-      {
-        "question": "Who was the first President of the United States?",
-        "answers": ["          George Washington", "          Abraham Lincoln", "          John Adams", "          Thomas Jefferson"],
-        "correctIndex": 0,
-        "funfact": "George Washington was unanimously elected as the first President of the United States."
-      },
-      {
-        "question": "What is the capital of France?",
-        "answers": ["          Paris", "          London", "          Berlin", "          Rome"],
-        "correctIndex": 0,
-        "funfact": "Paris is known as the City of Light."
-      },
-      {
-        "question": "Which year did the United States declare independence?",
-        "answers": ["          1776", "          1492", "          1865", "          1620"],
-        "correctIndex": 0,
-        "funfact": "The Declaration of Independence was adopted on July 4, 1776."
-      },
-      {
-        "question": "Who wrote the Gettysburg Address?",
-        "answers": ["          Abraham Lincoln", "          George Washington", "          Thomas Jefferson", "          John F. Kennedy"],
-        "correctIndex": 0,
-        "funfact": "Abraham Lincoln delivered the Gettysburg Address in 1863."
-      },
-      {
-        "question": "Which landmark is known as the symbol of freedom in the U.S.?",
-        "answers": ["          Statue of Liberty", "          Mount Rushmore", "          Golden Gate Bridge", "          Liberty Bell"],
-        "correctIndex": 0,
-        "funfact": "The Statue of Liberty was a gift from France in 1886."
-      },
-      {
-        "question": "Who is known as the 'Father of the Constitution'?",
-        "answers": ["          James Madison", "          Benjamin Franklin", "          Alexander Hamilton", "          John Adams"],
-        "correctIndex": 0,
-        "funfact": "James Madison played a key role in drafting the U.S. Constitution."
-      },
-      {
-        "question": "Which U.S. state was the last to join the union?",
-        "answers": ["          Hawaii", "          Alaska", "          Arizona", "          New Mexico"],
-        "correctIndex": 0,
-        "funfact": "Hawaii became the 50th state in 1959."
-      },
-      {
-        "question": "What is the largest state in the U.S. by area?",
-        "answers": ["          Alaska", "          Texas", "          California", "          Montana"],
-        "correctIndex": 0,
-        "funfact": "Alaska is more than twice the size of Texas."
-      },
-      {
-        "question": "Who was the main author of the Declaration of Independence?",
-        "answers": ["          Thomas Jefferson", "          John Adams", "          Benjamin Franklin", "          George Washington"],
-        "correctIndex": 0,
-        "funfact": "Thomas Jefferson drafted the Declaration of Independence in 1776."
-      },
-      {
-        "question": "Which city hosted the first modern Olympic Games?",
-        "answers": ["          Athens", "          Paris", "          London", "          Rome"],
-        "correctIndex": 0,
-        "funfact": "The first modern Olympics were held in Athens, Greece, in 1896."
-      }
+      {"question": "Who was the first President of the United States?", "answers": ["          Abraham Lincoln", "          George Washington", "          John Adams", "          Thomas Jefferson"], "correctIndex": 1, "funfact": "George Washington was unanimously elected as the first President of the United States."},
+      {"question": "What is the capital of France?", "answers": ["          Paris", "          Rome", "          London", "          Berlin"], "correctIndex": 0, "funfact": "Paris is known as the City of Light."},
+      {"question": "Which year did the United States declare independence?", "answers": ["          1492", "          1776", "          1865", "          1620"], "correctIndex": 1, "funfact": "The Declaration of Independence was adopted on July 4, 1776."},
+      {"question": "Who wrote the Gettysburg Address?", "answers": ["          John F. Kennedy", "          Abraham Lincoln", "          George Washington", "          Thomas Jefferson"], "correctIndex": 1, "funfact": "Abraham Lincoln delivered the Gettysburg Address in 1863."},
+      {"question": "Which landmark is known as the symbol of freedom in the U.S.?", "answers": ["          Mount Rushmore", "          Statue of Liberty", "          Golden Gate Bridge", "          Liberty Bell"], "correctIndex": 1, "funfact": "The Statue of Liberty was a gift from France in 1886."},
+      {"question": "Who is known as the 'Father of the Constitution'?", "answers": ["          James Madison", "          Benjamin Franklin", "          Alexander Hamilton", "          John Adams"], "correctIndex": 0, "funfact": "James Madison played a key role in drafting the U.S. Constitution."},
+      {"question": "Which U.S. state was the last to join the union?", "answers": ["          Alaska", "          Hawaii", "          Arizona", "          New Mexico"], "correctIndex": 1, "funfact": "Hawaii became the 50th state in 1959."},
+      {"question": "What is the largest state in the U.S. by area?", "answers": ["          Texas", "          California", "          Alaska", "          Montana"], "correctIndex": 2, "funfact": "Alaska is more than twice the size of Texas."},
+      {"question": "Who was the main author of the Declaration of Independence?", "answers": ["          John Adams", "          Thomas Jefferson", "          Benjamin Franklin", "          George Washington"], "correctIndex": 1, "funfact": "Thomas Jefferson drafted the Declaration of Independence in 1776."},
+      {"question": "Which city hosted the first modern Olympic Games?", "answers": ["          Paris", "          Athens", "          London", "          Rome"], "correctIndex": 1, "funfact": "The first modern Olympics were held in Athens, Greece, in 1896."}
     ]
   },
   {
@@ -71,66 +21,16 @@
     "description": "Explore iconic moments, landmarks, and heroes in U.S. history.",
     "image": "pkg:/images/AmericanAdventure.png",
     "questions": [
-      {
-        "question": "What is the tallest mountain in the United States?",
-        "answers": ["          Denali", "          Mount Whitney", "          Mount Elbert", "          Mount Rainier"],
-        "correctIndex": 0,
-        "funfact": "Denali, formerly known as Mount McKinley, is 20,310 feet tall."
-      },
-      {
-        "question": "Which river is the longest in the U.S.?",
-        "answers": ["          Missouri River", "          Mississippi River", "          Colorado River", "          Ohio River"],
-        "correctIndex": 0,
-        "funfact": "The Missouri River is about 2,341 miles long."
-      },
-      {
-        "question": "Who was the 16th President of the United States?",
-        "answers": ["          Abraham Lincoln", "          Ulysses S. Grant", "          Andrew Johnson", "          James Buchanan"],
-        "correctIndex": 0,
-        "funfact": "Abraham Lincoln led the country during the Civil War."
-      },
-      {
-        "question": "Which U.S. state is known as the 'Sunshine State'?",
-        "answers": ["          Florida", "          California", "          Arizona", "          Texas"],
-        "correctIndex": 0,
-        "funfact": "Florida is famous for its warm climate and beaches."
-      },
-      {
-        "question": "What is the national bird of the United States?",
-        "answers": ["          Bald Eagle", "          Golden Eagle", "          Peregrine Falcon", "          Red-tailed Hawk"],
-        "correctIndex": 0,
-        "funfact": "The Bald Eagle was chosen as the national bird in 1782."
-      },
-      {
-        "question": "Which U.S. city is known as the 'Big Apple'?",
-        "answers": ["          New York City", "          Los Angeles", "          Chicago", "          Miami"],
-        "correctIndex": 0,
-        "funfact": "New York City is often called the 'Big Apple.'"
-      },
-      {
-        "question": "Who invented the light bulb?",
-        "answers": ["          Thomas Edison", "          Nikola Tesla", "          Alexander Graham Bell", "          Benjamin Franklin"],
-        "correctIndex": 0,
-        "funfact": "Thomas Edison patented the first practical light bulb in 1879."
-      },
-      {
-        "question": "Which U.S. state is famous for Hollywood?",
-        "answers": ["          California", "          New York", "          Florida", "          Nevada"],
-        "correctIndex": 0,
-        "funfact": "Hollywood is a neighborhood in Los Angeles, California."
-      },
-      {
-        "question": "What is the largest lake in the U.S.?",
-        "answers": ["          Lake Superior", "          Lake Michigan", "          Lake Huron", "          Lake Erie"],
-        "correctIndex": 0,
-        "funfact": "Lake Superior is the largest of the Great Lakes."
-      },
-      {
-        "question": "Who was the first man to walk on the moon?",
-        "answers": ["          Neil Armstrong", "          Buzz Aldrin", "          Michael Collins", "          John Glenn"],
-        "correctIndex": 0,
-        "funfact": "Neil Armstrong set foot on the moon in 1969."
-      }
+      {"question": "What is the tallest mountain in the United States?", "answers": ["          Mount Elbert", "          Denali", "          Mount Whitney", "          Mount Rainier"], "correctIndex": 1, "funfact": "Denali, formerly known as Mount McKinley, is 20,310 feet tall."},
+      {"question": "Which river is the longest in the U.S.?", "answers": ["          Missouri River", "          Colorado River", "          Ohio River", "          Mississippi River"], "correctIndex": 0, "funfact": "The Missouri River is about 2,341 miles long."},
+      {"question": "Who was the 16th President of the United States?", "answers": ["          Ulysses S. Grant", "          Abraham Lincoln", "          Andrew Johnson", "          James Buchanan"], "correctIndex": 1, "funfact": "Abraham Lincoln led the country during the Civil War."},
+      {"question": "Which U.S. state is known as the 'Sunshine State'?", "answers": ["          Arizona", "          Florida", "          California", "          Texas"], "correctIndex": 1, "funfact": "Florida is famous for its warm climate and beaches."},
+      {"question": "What is the national bird of the United States?", "answers": ["          Golden Eagle", "          Bald Eagle", "          Peregrine Falcon", "          Red-tailed Hawk"], "correctIndex": 1, "funfact": "The Bald Eagle was chosen as the national bird in 1782."},
+      {"question": "Which U.S. city is known as the 'Big Apple'?", "answers": ["          New York City", "          Los Angeles", "          Chicago", "          Miami"], "correctIndex": 0, "funfact": "New York City is often called the 'Big Apple.'"},
+      {"question": "Who invented the light bulb?", "answers": ["          Nikola Tesla", "          Thomas Edison", "          Alexander Graham Bell", "          Benjamin Franklin"], "correctIndex": 1, "funfact": "Thomas Edison patented the first practical light bulb in 1879."},
+      {"question": "Which U.S. state is famous for Hollywood?", "answers": ["          California", "          New York", "          Florida", "          Nevada"], "correctIndex": 0, "funfact": "Hollywood is a neighborhood in Los Angeles, California."},
+      {"question": "What is the largest lake in the U.S.?", "answers": ["          Lake Michigan", "          Lake Superior", "          Lake Huron", "          Lake Erie"], "correctIndex": 1, "funfact": "Lake Superior is the largest of the Great Lakes."},
+      {"question": "Who was the first man to walk on the moon?", "answers": ["          Buzz Aldrin", "          Neil Armstrong", "          Michael Collins", "          John Glenn"], "correctIndex": 1, "funfact": "Neil Armstrong set foot on the moon in 1969."}
     ]
   },
   {
@@ -138,66 +38,16 @@
     "description": "Dive into the world of sports with player stats and epic moments",
     "image": "pkg:/images/Sports.png",
     "questions": [
-      {
-        "question": "Which country won the FIFA World Cup in 2018?",
-        "answers": ["          France", "          Brazil", "          Germany", "          Argentina"],
-        "correctIndex": 0,
-        "funfact": "France won the FIFA World Cup in 2018, defeating Croatia 4-2 in the final."
-      },
-      {
-        "question": "Who holds the record for most Olympic gold medals?",
-        "answers": ["          Michael Phelps", "          Usain Bolt", "          Simone Biles", "          Carl Lewis"],
-        "correctIndex": 0,
-        "funfact": "Michael Phelps has won 23 Olympic gold medals."
-      },
-      {
-        "question": "Which sport uses a puck?",
-        "answers": ["          Ice Hockey", "          Baseball", "          Basketball", "          Soccer"],
-        "correctIndex": 0,
-        "funfact": "Ice hockey is played with a rubber puck."
-      },
-      {
-        "question": "Who is known as 'The King of Basketball'?",
-        "answers": ["          LeBron James", "          Michael Jordan", "          Kobe Bryant", "          Shaquille O'Neal"],
-        "correctIndex": 0,
-        "funfact": "LeBron James is often called 'King James.'"
-      },
-      {
-        "question": "Which country hosted the 2016 Summer Olympics?",
-        "answers": ["          Brazil", "          China", "          United Kingdom", "          Russia"],
-        "correctIndex": 0,
-        "funfact": "The 2016 Summer Olympics were held in Rio de Janeiro, Brazil."
-      },
-      {
-        "question": "What is the national sport of Japan?",
-        "answers": ["          Sumo Wrestling", "          Baseball", "          Soccer", "          Judo"],
-        "correctIndex": 0,
-        "funfact": "Sumo wrestling is considered Japan's national sport."
-      },
-      {
-        "question": "Who won the NBA MVP award in 2021?",
-        "answers": ["          Nikola Jokic", "          Giannis Antetokounmpo", "          Stephen Curry", "          Joel Embiid"],
-        "correctIndex": 0,
-        "funfact": "Nikola Jokic became the first Denver Nuggets player to win MVP."
-      },
-      {
-        "question": "Which tennis player has won the most Grand Slam titles?",
-        "answers": ["          Serena Williams", "          Roger Federer", "          Rafael Nadal", "          Novak Djokovic"],
-        "correctIndex": 0,
-        "funfact": "Serena Williams has 23 Grand Slam singles titles."
-      },
-      {
-        "question": "What is the maximum score in a single frame of bowling?",
-        "answers": ["          30", "          20", "          15", "          10"],
-        "correctIndex": 0,
-        "funfact": "A strike followed by two more strikes scores 30 in a frame."
-      },
-      {
-        "question": "Which country is famous for the sport of cricket?",
-        "answers": ["          India", "          United States", "          Canada", "          Germany"],
-        "correctIndex": 0,
-        "funfact": "Cricket is the most popular sport in India."
-      }
+      {"question": "Which country won the FIFA World Cup in 2018?", "answers": ["          Germany", "          France", "          Brazil", "          Argentina"], "correctIndex": 1, "funfact": "France won the FIFA World Cup in 2018, defeating Croatia 4-2 in the final."},
+      {"question": "Who holds the record for most Olympic gold medals?", "answers": ["          Usain Bolt", "          Michael Phelps", "          Simone Biles", "          Carl Lewis"], "correctIndex": 1, "funfact": "Michael Phelps has won 23 Olympic gold medals."},
+      {"question": "Which sport uses a puck?", "answers": ["          Baseball", "          Ice Hockey", "          Basketball", "          Soccer"], "correctIndex": 1, "funfact": "Ice hockey is played with a rubber puck."},
+      {"question": "Who is known as 'The King of Basketball'?", "answers": ["          LeBron James", "          Michael Jordan", "          Kobe Bryant", "          Shaquille O'Neal"], "correctIndex": 0, "funfact": "LeBron James is often called 'King James.'"},
+      {"question": "Which country hosted the 2016 Summer Olympics?", "answers": ["          Brazil", "          China", "          United Kingdom", "          Russia"], "correctIndex": 0, "funfact": "The 2016 Summer Olympics were held in Rio de Janeiro, Brazil."},
+      {"question": "What is the national sport of Japan?", "answers": ["          Sumo Wrestling", "          Baseball", "          Soccer", "          Judo"], "correctIndex": 0, "funfact": "Sumo wrestling is considered Japan's national sport."},
+      {"question": "Who won the NBA MVP award in 2021?", "answers": ["          Nikola Jokic", "          Giannis Antetokounmpo", "          Stephen Curry", "          Joel Embiid"], "correctIndex": 0, "funfact": "Nikola Jokic became the first Denver Nuggets player to win MVP."},
+      {"question": "Which tennis player has won the most Grand Slam titles?", "answers": ["          Serena Williams", "          Roger Federer", "          Rafael Nadal", "          Novak Djokovic"], "correctIndex": 0, "funfact": "Serena Williams has 23 Grand Slam singles titles."},
+      {"question": "What is the maximum score in a single frame of bowling?", "answers": ["          20", "          30", "          15", "          10"], "correctIndex": 1, "funfact": "A strike followed by two more strikes scores 30 in a frame."},
+      {"question": "Which country is famous for the sport of cricket?", "answers": ["          United States", "          India", "          Canada", "          Germany"], "correctIndex": 1, "funfact": "Cricket is the most popular sport in India."}
     ]
   },
   {
@@ -205,66 +55,16 @@
     "description": "Fun facts about the natural world, animals, and scientific wonders.",
     "image": "pkg:/images/BrainyBasics.png",
     "questions": [
-      {
-        "question": "What is the chemical symbol for water?",
-        "answers": ["          H2O", "          CO2", "          O2", "          NaCl"],
-        "correctIndex": 0,
-        "funfact": "H2O stands for two hydrogen atoms and one oxygen atom."
-      },
-      {
-        "question": "Which planet is known as the Red Planet?",
-        "answers": ["          Mars", "          Venus", "          Jupiter", "          Saturn"],
-        "correctIndex": 0,
-        "funfact": "Mars appears red due to iron oxide on its surface."
-      },
-      {
-        "question": "What is the largest mammal on Earth?",
-        "answers": ["          Blue Whale", "          Elephant", "          Giraffe", "          Hippopotamus"],
-        "correctIndex": 0,
-        "funfact": "The blue whale can weigh up to 200 tons."
-      },
-      {
-        "question": "Which gas do plants absorb from the atmosphere?",
-        "answers": ["          Carbon Dioxide", "          Oxygen", "          Nitrogen", "          Hydrogen"],
-        "correctIndex": 0,
-        "funfact": "Plants use carbon dioxide for photosynthesis."
-      },
-      {
-        "question": "What is the hardest natural substance?",
-        "answers": ["          Diamond", "          Gold", "          Iron", "          Silver"],
-        "correctIndex": 0,
-        "funfact": "Diamond is the hardest known natural material."
-      },
-      {
-        "question": "Which animal is known as the King of the Jungle?",
-        "answers": ["          Lion", "          Tiger", "          Elephant", "          Leopard"],
-        "correctIndex": 0,
-        "funfact": "Lions are often called the King of the Jungle."
-      },
-      {
-        "question": "What is the boiling point of water at sea level?",
-        "answers": ["          100°C", "          90°C", "          80°C", "          70°C"],
-        "correctIndex": 0,
-        "funfact": "Water boils at 100°C (212°F) at sea level."
-      },
-      {
-        "question": "Which organ pumps blood throughout the body?",
-        "answers": ["          Heart", "          Brain", "          Liver", "          Lungs"],
-        "correctIndex": 0,
-        "funfact": "The heart beats about 100,000 times a day."
-      },
-      {
-        "question": "What is the process by which plants make food?",
-        "answers": ["          Photosynthesis", "          Respiration", "          Digestion", "          Fermentation"],
-        "correctIndex": 0,
-        "funfact": "Photosynthesis uses sunlight to make food from carbon dioxide and water."
-      },
-      {
-        "question": "Which bird is known for its colorful tail?",
-        "answers": ["          Peacock", "          Sparrow", "          Crow", "          Pigeon"],
-        "correctIndex": 0,
-        "funfact": "Peacocks are famous for their iridescent tail feathers."
-      }
+      {"question": "What is the chemical symbol for water?", "answers": ["          CO2", "          H2O", "          O2", "          NaCl"], "correctIndex": 1, "funfact": "H2O stands for two hydrogen atoms and one oxygen atom."},
+      {"question": "Which planet is known as the Red Planet?", "answers": ["          Mars", "          Venus", "          Jupiter", "          Saturn"], "correctIndex": 0, "funfact": "Mars appears red due to iron oxide on its surface."},
+      {"question": "What is the largest mammal on Earth?", "answers": ["          Elephant", "          Blue Whale", "          Giraffe", "          Hippopotamus"], "correctIndex": 1, "funfact": "The blue whale can weigh up to 200 tons."},
+      {"question": "Which gas do plants absorb from the atmosphere?", "answers": ["          Carbon Dioxide", "          Oxygen", "          Nitrogen", "          Hydrogen"], "correctIndex": 0, "funfact": "Plants use carbon dioxide for photosynthesis."},
+      {"question": "What is the hardest natural substance?", "answers": ["          Gold", "          Diamond", "          Iron", "          Silver"], "correctIndex": 1, "funfact": "Diamond is the hardest known natural material."},
+      {"question": "Which animal is known as the King of the Jungle?", "answers": ["          Lion", "          Tiger", "          Elephant", "          Leopard"], "correctIndex": 0, "funfact": "Lions are often called the King of the Jungle."},
+      {"question": "What is the boiling point of water at sea level?", "answers": ["          100°C", "          90°C", "          80°C", "          70°C"], "correctIndex": 0, "funfact": "Water boils at 100°C (212°F) at sea level."},
+      {"question": "Which organ pumps blood throughout the body?", "answers": ["          Heart", "          Brain", "          Liver", "          Lungs"], "correctIndex": 0, "funfact": "The heart beats about 100,000 times a day."},
+      {"question": "What is the process by which plants make food?", "answers": ["          Photosynthesis", "          Respiration", "          Digestion", "          Fermentation"], "correctIndex": 0, "funfact": "Photosynthesis uses sunlight to make food from carbon dioxide and water."},
+      {"question": "Which bird is known for its colorful tail?", "answers": ["          Crow", "          Sparrow", "          Peacock", "          Pigeon"], "correctIndex": 2, "funfact": "Peacocks are famous for their iridescent tail feathers."}
     ]
   },
   {
@@ -272,66 +72,16 @@
     "description": "Can you outsmart a 5th grader? Questions upto 5th Grade.",
     "image": "pkg:/images/5thGrader.png",
     "questions": [
-      {
-        "question": "How many continents are there on Earth?",
-        "answers": ["          7", "          5", "          6", "          8"],
-        "correctIndex": 0,
-        "funfact": "There are seven continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia."
-      },
-      {
-        "question": "What is the largest planet in our solar system?",
-        "answers": ["          Jupiter", "          Saturn", "          Earth", "          Mars"],
-        "correctIndex": 0,
-        "funfact": "Jupiter is so big that over 1,300 Earths could fit inside it."
-      },
-      {
-        "question": "Who wrote 'Charlotte's Web'?",
-        "answers": ["          E.B. White", "          J.K. Rowling", "          Dr. Seuss", "          Roald Dahl"],
-        "correctIndex": 0,
-        "funfact": "E.B. White wrote 'Charlotte's Web' in 1952."
-      },
-      {
-        "question": "What is the freezing point of water?",
-        "answers": ["          0°C", "          32°C", "          100°C", "          50°C"],
-        "correctIndex": 0,
-        "funfact": "Water freezes at 0°C (32°F)."
-      },
-      {
-        "question": "Which country is known as the Land of the Rising Sun?",
-        "answers": ["          Japan", "          China", "          India", "          South Korea"],
-        "correctIndex": 0,
-        "funfact": "Japan is called the Land of the Rising Sun."
-      },
-      {
-        "question": "What is the main language spoken in Brazil?",
-        "answers": ["          Portuguese", "          Spanish", "          English", "          French"],
-        "correctIndex": 0,
-        "funfact": "Portuguese is the official language of Brazil."
-      },
-      {
-        "question": "Which shape has three sides?",
-        "answers": ["          Triangle", "          Square", "          Rectangle", "          Circle"],
-        "correctIndex": 0,
-        "funfact": "A triangle has three sides and three angles."
-      },
-      {
-        "question": "What is the largest organ in the human body?",
-        "answers": ["          Skin", "          Heart", "          Liver", "          Brain"],
-        "correctIndex": 0,
-        "funfact": "The skin is the body's largest organ."
-      },
-      {
-        "question": "Who painted the Mona Lisa?",
-        "answers": ["          Leonardo da Vinci", "          Pablo Picasso", "          Vincent van Gogh", "          Claude Monet"],
-        "correctIndex": 0,
-        "funfact": "Leonardo da Vinci painted the Mona Lisa in the early 1500s."
-      },
-      {
-        "question": "What is the smallest prime number?",
-        "answers": ["          2", "          1", "          3", "          5"],
-        "correctIndex": 0,
-        "funfact": "2 is the only even prime number."
-      }
+      {"question": "How many continents are there on Earth?", "answers": ["          5", "          7", "          6", "          8"], "correctIndex": 1, "funfact": "There are seven continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia."},
+      {"question": "What is the largest planet in our solar system?", "answers": ["          Jupiter", "          Saturn", "          Earth", "          Mars"], "correctIndex": 0, "funfact": "Jupiter is so big that over 1,300 Earths could fit inside it."},
+      {"question": "Who wrote 'Charlotte's Web'?", "answers": ["          E.B. White", "          J.K. Rowling", "          Dr. Seuss", "          Roald Dahl"], "correctIndex": 0, "funfact": "E.B. White wrote 'Charlotte's Web' in 1952."},
+      {"question": "What is the freezing point of water?", "answers": ["          0°C", "          32°C", "          100°C", "          50°C"], "correctIndex": 0, "funfact": "Water freezes at 0°C (32°F)."},
+      {"question": "Which country is known as the Land of the Rising Sun?", "answers": ["          Japan", "          China", "          India", "          South Korea"], "correctIndex": 0, "funfact": "Japan is called the Land of the Rising Sun."},
+      {"question": "What is the main language spoken in Brazil?", "answers": ["          Portuguese", "          Spanish", "          English", "          French"], "correctIndex": 0, "funfact": "Portuguese is the official language of Brazil."},
+      {"question": "Which shape has three sides?", "answers": ["          Triangle", "          Square", "          Rectangle", "          Circle"], "correctIndex": 0, "funfact": "A triangle has three sides and three angles."},
+      {"question": "What is the largest organ in the human body?", "answers": ["          Skin", "          Heart", "          Liver", "          Brain"], "correctIndex": 0, "funfact": "The skin is the body's largest organ."},
+      {"question": "Who painted the Mona Lisa?", "answers": ["          Leonardo da Vinci", "          Pablo Picasso", "          Vincent van Gogh", "          Claude Monet"], "correctIndex": 0, "funfact": "Leonardo da Vinci painted the Mona Lisa in the early 1500s."},
+      {"question": "What is the smallest prime number?", "answers": ["          2", "          1", "          3", "          5"], "correctIndex": 0, "funfact": "2 is the only even prime number."}
     ]
   },
   {
@@ -339,66 +89,16 @@
     "description": "Facts about U.S. national parks, wildlife, and outdoor adventures.",
     "image": "pkg:/images/TheGreat.png",
     "questions": [
-      {
-        "question": "Which is the largest national park in the U.S.?",
-        "answers": ["          Wrangell-St. Elias", "          Yellowstone", "          Yosemite", "          Grand Canyon"],
-        "correctIndex": 0,
-        "funfact": "Wrangell-St. Elias National Park in Alaska is the largest in the U.S."
-      },
-      {
-        "question": "What is the state flower of Texas?",
-        "answers": ["          Bluebonnet", "          Rose", "          Sunflower", "          Tulip"],
-        "correctIndex": 0,
-        "funfact": "The bluebonnet is the state flower of Texas."
-      },
-      {
-        "question": "Which animal is known for building dams?",
-        "answers": ["          Beaver", "          Otter", "          Muskrat", "          Mole"],
-        "correctIndex": 0,
-        "funfact": "Beavers build dams to create ponds for their homes."
-      },
-      {
-        "question": "What is the tallest tree species in the world?",
-        "answers": ["          Coast Redwood", "          Douglas Fir", "          Sitka Spruce", "          Giant Sequoia"],
-        "correctIndex": 0,
-        "funfact": "Coast redwoods can grow over 350 feet tall."
-      },
-      {
-        "question": "Which U.S. state is home to the Grand Canyon?",
-        "answers": ["          Arizona", "          Utah", "          Nevada", "          Colorado"],
-        "correctIndex": 0,
-        "funfact": "The Grand Canyon is located in northern Arizona."
-      },
-      {
-        "question": "What is the largest desert in the U.S.?",
-        "answers": ["          Great Basin", "          Mojave", "          Sonoran", "          Chihuahuan"],
-        "correctIndex": 0,
-        "funfact": "The Great Basin Desert covers much of Nevada and Utah."
-      },
-      {
-        "question": "Which bird is the fastest in the world?",
-        "answers": ["          Peregrine Falcon", "          Bald Eagle", "          Golden Eagle", "          Osprey"],
-        "correctIndex": 0,
-        "funfact": "The peregrine falcon can dive at speeds over 200 mph."
-      },
-      {
-        "question": "What is the deepest lake in the U.S.?",
-        "answers": ["          Crater Lake", "          Lake Tahoe", "          Lake Superior", "          Lake Michigan"],
-        "correctIndex": 0,
-        "funfact": "Crater Lake in Oregon is 1,943 feet deep."
-      },
-      {
-        "question": "Which U.S. state has the most national parks?",
-        "answers": ["          California", "          Alaska", "          Utah", "          Colorado"],
-        "correctIndex": 0,
-        "funfact": "California has nine national parks, more than any other state."
-      },
-      {
-        "question": "What is the most visited national park in the U.S.?",
-        "answers": ["          Great Smoky Mountains", "          Yellowstone", "          Grand Canyon", "          Yosemite"],
-        "correctIndex": 0,
-        "funfact": "The Great Smoky Mountains National Park attracts over 12 million visitors a year."
-      }
+      {"question": "Which is the largest national park in the U.S.?", "answers": ["          Yellowstone", "          Wrangell-St. Elias", "          Yosemite", "          Grand Canyon"], "correctIndex": 1, "funfact": "Wrangell-St. Elias National Park in Alaska is the largest in the U.S."},
+      {"question": "What is the state flower of Texas?", "answers": ["          Bluebonnet", "          Rose", "          Sunflower", "          Tulip"], "correctIndex": 0, "funfact": "The bluebonnet is the state flower of Texas."},
+      {"question": "Which animal is known for building dams?", "answers": ["          Beaver", "          Otter", "          Muskrat", "          Mole"], "correctIndex": 0, "funfact": "Beavers build dams to create ponds for their homes."},
+      {"question": "What is the tallest tree species in the world?", "answers": ["          Coast Redwood", "          Douglas Fir", "          Sitka Spruce", "          Giant Sequoia"], "correctIndex": 0, "funfact": "Coast redwoods can grow over 350 feet tall."},
+      {"question": "Which U.S. state is home to the Grand Canyon?", "answers": ["          Arizona", "          Utah", "          Nevada", "          Colorado"], "correctIndex": 0, "funfact": "The Grand Canyon is located in northern Arizona."},
+      {"question": "What is the largest desert in the U.S.?", "answers": ["          Mojave", "          Great Basin", "          Sonoran", "          Chihuahuan"], "correctIndex": 1, "funfact": "The Great Basin Desert covers much of Nevada and Utah."},
+      {"question": "Which bird is the fastest in the world?", "answers": ["          Bald Eagle", "          Peregrine Falcon", "          Golden Eagle", "          Osprey"], "correctIndex": 1, "funfact": "The peregrine falcon can dive at speeds over 200 mph."},
+      {"question": "What is the deepest lake in the U.S.?", "answers": ["          Lake Tahoe", "          Crater Lake", "          Lake Superior", "          Lake Michigan"], "correctIndex": 1, "funfact": "Crater Lake in Oregon is 1,943 feet deep."},
+      {"question": "Which U.S. state has the most national parks?", "answers": ["          Alaska", "          California", "          Utah", "          Colorado"], "correctIndex": 1, "funfact": "California has nine national parks, more than any other state."},
+      {"question": "What is the most visited national park in the U.S.?", "answers": ["          Yellowstone", "          Great Smoky Mountains", "          Grand Canyon", "          Yosemite"], "correctIndex": 1, "funfact": "The Great Smoky Mountains National Park attracts over 12 million visitors a year."}
     ]
   },
   {
@@ -406,66 +106,16 @@
     "description": "A mix of riddles, puzzles, and brain teasers for the whole family.",
     "image": "pkg:/images/RiddleMe.png",
     "questions": [
-      {
-        "question": "What has keys but can't open locks?",
-        "answers": ["          Piano", "          Car", "          House", "          Safe"],
-        "correctIndex": 0,
-        "funfact": "A piano has 88 keys but none can open a lock!"
-      },
-      {
-        "question": "What has a face and two hands but no arms or legs?",
-        "answers": ["          Clock", "          Doll", "          Robot", "          Watch"],
-        "correctIndex": 0,
-        "funfact": "A clock's 'face' shows the time, and its 'hands' point to the hours and minutes."
-      },
-      {
-        "question": "What gets wetter as it dries?",
-        "answers": ["          Towel", "          Sponge", "          Soap", "          Water"],
-        "correctIndex": 0,
-        "funfact": "A towel dries you off but gets wetter itself!"
-      },
-      {
-        "question": "What has a neck but no head?",
-        "answers": ["          Bottle", "          Guitar", "          Shirt", "          Tree"],
-        "correctIndex": 0,
-        "funfact": "A bottle has a neck but no head."
-      },
-      {
-        "question": "What has an eye but cannot see?",
-        "answers": ["          Needle", "          Storm", "          Potato", "          Hurricane"],
-        "correctIndex": 0,
-        "funfact": "The 'eye' of a needle is the hole for the thread."
-      },
-      {
-        "question": "What has a thumb and four fingers but is not alive?",
-        "answers": ["          Glove", "          Mitten", "          Hand", "          Sock"],
-        "correctIndex": 0,
-        "funfact": "A glove fits your hand but isn't alive."
-      },
-      {
-        "question": "What can travel around the world while staying in a corner?",
-        "answers": ["          Stamp", "          Coin", "          Clock", "          Map"],
-        "correctIndex": 0,
-        "funfact": "A stamp stays in the corner of an envelope but can travel the world."
-      },
-      {
-        "question": "What has a head and a tail but no body?",
-        "answers": ["          Coin", "          Snake", "          Fish", "          Lizard"],
-        "correctIndex": 0,
-        "funfact": "A coin has a head and a tail side."
-      },
-      {
-        "question": "What comes down but never goes up?",
-        "answers": ["          Rain", "          Sun", "          Ball", "          Bird"],
-        "correctIndex": 0,
-        "funfact": "Rain always falls down from the sky."
-      },
-      {
-        "question": "What has one eye but can't see?",
-        "answers": ["          Needle", "          Cyclops", "          Storm", "          Potato"],
-        "correctIndex": 0,
-        "funfact": "The 'eye' of a needle is for threading."
-      }
+      {"question": "What has keys but can't open locks?", "answers": ["          Piano", "          Car", "          House", "          Safe"], "correctIndex": 0, "funfact": "A piano has 88 keys but none can open a lock!"},
+      {"question": "What has a face and two hands but no arms or legs?", "answers": ["          Watch", "          Clock", "          Doll", "          Robot"], "correctIndex": 1, "funfact": "A clock's 'face' shows the time, and its 'hands' point to the hours and minutes."},
+      {"question": "What gets wetter as it dries?", "answers": ["          Towel", "          Sponge", "          Soap", "          Water"], "correctIndex": 0, "funfact": "A towel dries you off but gets wetter itself!"},
+      {"question": "What has a neck but no head?", "answers": ["          Guitar", "          Bottle", "          Shirt", "          Tree"], "correctIndex": 1, "funfact": "A bottle has a neck but no head."},
+      {"question": "What has an eye but cannot see?", "answers": ["          Needle", "          Storm", "          Potato", "          Hurricane"], "correctIndex": 0, "funfact": "The 'eye' of a needle is the hole for the thread."},
+      {"question": "What has a thumb and four fingers but is not alive?", "answers": ["          Glove", "          Mitten", "          Hand", "          Sock"], "correctIndex": 0, "funfact": "A glove fits your hand but isn't alive."},
+      {"question": "What can travel around the world while staying in a corner?", "answers": ["          Stamp", "          Coin", "          Clock", "          Map"], "correctIndex": 0, "funfact": "A stamp stays in the corner of an envelope but can travel the world."},
+      {"question": "What has a head and a tail but no body?", "answers": ["          Coin", "          Snake", "          Fish", "          Lizard"], "correctIndex": 0, "funfact": "A coin has a head and a tail side."},
+      {"question": "What comes down but never goes up?", "answers": ["          Rain", "          Sun", "          Ball", "          Bird"], "correctIndex": 0, "funfact": "Rain always falls down from the sky."},
+      {"question": "What has one eye but can't see?", "answers": ["          Needle", "          Cyclops", "          Storm", "          Potato"], "correctIndex": 0, "funfact": "The 'eye' of a needle is for threading."}
     ]
   },
   {
@@ -473,66 +123,16 @@
     "description": "Test your knowledge of movies, music, TV shows, and video games.",
     "image": "pkg:/images/Pop.png",
     "questions": [
-      {
-        "question": "Who played Harry Potter in the movies?",
-        "answers": ["          Daniel Radcliffe", "          Rupert Grint", "          Tom Felton", "          Elijah Wood"],
-        "correctIndex": 0,
-        "funfact": "Daniel Radcliffe starred as Harry Potter in all eight films."
-      },
-      {
-        "question": "Which band sang 'Hey Jude'?",
-        "answers": ["          The Beatles", "          The Rolling Stones", "          Queen", "          U2"],
-        "correctIndex": 0,
-        "funfact": "'Hey Jude' was released by The Beatles in 1968."
-      },
-      {
-        "question": "What is the name of the princess in 'Frozen'?",
-        "answers": ["          Elsa", "          Anna", "          Belle", "          Ariel"],
-        "correctIndex": 0,
-        "funfact": "Elsa is the Snow Queen in Disney's 'Frozen.'"
-      },
-      {
-        "question": "Who created the video game 'Super Mario'?",
-        "answers": ["          Shigeru Miyamoto", "          Hideo Kojima", "          Satoru Iwata", "          Masahiro Sakurai"],
-        "correctIndex": 0,
-        "funfact": "Shigeru Miyamoto designed 'Super Mario Bros.' in 1985."
-      },
-      {
-        "question": "Which movie features the song 'Circle of Life'?",
-        "answers": ["          The Lion King", "          Aladdin", "          Beauty and the Beast", "          Mulan"],
-        "correctIndex": 0,
-        "funfact": "'Circle of Life' is a famous song from 'The Lion King.'"
-      },
-      {
-        "question": "Who is the main character in the video game 'The Legend of Zelda'?",
-        "answers": ["          Link", "          Zelda", "          Ganon", "          Mario"],
-        "correctIndex": 0,
-        "funfact": "Link is the hero in 'The Legend of Zelda' series."
-      },
-      {
-        "question": "Which TV show features a coffee shop called Central Perk?",
-        "answers": ["          Friends", "          Seinfeld", "          The Office", "          How I Met Your Mother"],
-        "correctIndex": 0,
-        "funfact": "Central Perk is the iconic coffee shop in 'Friends.'"
-      },
-      {
-        "question": "Who voiced Woody in 'Toy Story'?",
-        "answers": ["          Tom Hanks", "          Tim Allen", "          Billy Crystal", "          Robin Williams"],
-        "correctIndex": 0,
-        "funfact": "Tom Hanks voiced Woody in all 'Toy Story' movies."
-      },
-      {
-        "question": "Which movie won the Oscar for Best Picture in 2020?",
-        "answers": ["          Parasite", "          1917", "          Joker", "          Ford v Ferrari"],
-        "correctIndex": 0,
-        "funfact": "'Parasite' was the first non-English film to win Best Picture."
-      },
-      {
-        "question": "Who is the creator of 'Star Wars'?",
-        "answers": ["          George Lucas", "          Steven Spielberg", "          J.J. Abrams", "          James Cameron"],
-        "correctIndex": 0,
-        "funfact": "George Lucas created the 'Star Wars' universe."
-      }
+      {"question": "Who played Harry Potter in the movies?", "answers": ["          Daniel Radcliffe", "          Rupert Grint", "          Tom Felton", "          Elijah Wood"], "correctIndex": 0, "funfact": "Daniel Radcliffe starred as Harry Potter in all eight films."},
+      {"question": "Which band sang 'Hey Jude'?", "answers": ["          The Rolling Stones", "          The Beatles", "          Queen", "          U2"], "correctIndex": 1, "funfact": "'Hey Jude' was released by The Beatles in 1968."},
+      {"question": "What is the name of the princess in 'Frozen'?", "answers": ["          Elsa", "          Anna", "          Belle", "          Ariel"], "correctIndex": 0, "funfact": "Elsa is the Snow Queen in Disney's 'Frozen.'"},
+      {"question": "Who created the video game 'Super Mario'?", "answers": ["          Shigeru Miyamoto", "          Hideo Kojima", "          Satoru Iwata", "          Masahiro Sakurai"], "correctIndex": 0, "funfact": "Shigeru Miyamoto designed 'Super Mario Bros.' in 1985."},
+      {"question": "Which movie features the song 'Circle of Life'?", "answers": ["          The Lion King", "          Aladdin", "          Beauty and the Beast", "          Mulan"], "correctIndex": 0, "funfact": "'Circle of Life' is a famous song from 'The Lion King.'"},
+      {"question": "Who is the main character in the video game 'The Legend of Zelda'?", "answers": ["          Link", "          Zelda", "          Ganon", "          Mario"], "correctIndex": 0, "funfact": "Link is the hero in 'The Legend of Zelda' series."},
+      {"question": "Which TV show features a coffee shop called Central Perk?", "answers": ["          Friends", "          Seinfeld", "          The Office", "          How I Met Your Mother"], "correctIndex": 0, "funfact": "Central Perk is the iconic coffee shop in 'Friends.'"},
+      {"question": "Who voiced Woody in 'Toy Story'?", "answers": ["          Tom Hanks", "          Tim Allen", "          Billy Crystal", "          Robin Williams"], "correctIndex": 0, "funfact": "Tom Hanks voiced Woody in all 'Toy Story' movies."},
+      {"question": "Which movie won the Oscar for Best Picture in 2020?", "answers": ["          Parasite", "          1917", "          Joker", "          Ford v Ferrari"], "correctIndex": 0, "funfact": "'Parasite' was the first non-English film to win Best Picture."},
+      {"question": "Who is the creator of 'Star Wars'?", "answers": ["          George Lucas", "          Steven Spielberg", "          J.J. Abrams", "          James Cameron"], "correctIndex": 0, "funfact": "George Lucas created the 'Star Wars' universe."}
     ]
   },
   {
@@ -540,66 +140,16 @@
     "description": "Myths, legends, and famous stories from around the world.",
     "image": "pkg:/images/Legends.png",
     "questions": [
-      {
-        "question": "Who pulled the sword from the stone in Arthurian legend?",
-        "answers": ["          King Arthur", "          Merlin", "          Lancelot", "          Guinevere"],
-        "correctIndex": 0,
-        "funfact": "King Arthur is said to have pulled Excalibur from the stone."
-      },
-      {
-        "question": "Who is the Greek god of the sea?",
-        "answers": ["          Poseidon", "          Zeus", "          Hades", "          Apollo"],
-        "correctIndex": 0,
-        "funfact": "Poseidon is one of the twelve Olympian deities."
-      },
-      {
-        "question": "What is the name of the Norse god of thunder?",
-        "answers": ["          Thor", "          Odin", "          Loki", "          Freyja"],
-        "correctIndex": 0,
-        "funfact": "Thor wields a magical hammer called Mjölnir."
-      },
-      {
-        "question": "Who is the main character in 'The Odyssey'?",
-        "answers": ["          Odysseus", "          Achilles", "          Hector", "          Perseus"],
-        "correctIndex": 0,
-        "funfact": "Odysseus is the hero of Homer's epic poem 'The Odyssey.'"
-      },
-      {
-        "question": "Which legendary bird rises from its ashes?",
-        "answers": ["          Phoenix", "          Griffin", "          Roc", "          Thunderbird"],
-        "correctIndex": 0,
-        "funfact": "The phoenix symbolizes rebirth and immortality."
-      },
-      {
-        "question": "Who is the trickster god in Norse mythology?",
-        "answers": ["          Loki", "          Thor", "          Odin", "          Balder"],
-        "correctIndex": 0,
-        "funfact": "Loki is known for his cunning and mischief."
-      },
-      {
-        "question": "What is the name of the dragon in 'The Hobbit'?",
-        "answers": ["          Smaug", "          Drogon", "          Fafnir", "          Norbert"],
-        "correctIndex": 0,
-        "funfact": "Smaug is the main antagonist in 'The Hobbit.'"
-      },
-      {
-        "question": "Who is the hero of the Greek myth 'The Twelve Labors'?",
-        "answers": ["          Hercules", "          Perseus", "          Theseus", "          Jason"],
-        "correctIndex": 0,
-        "funfact": "Hercules completed twelve nearly impossible tasks."
-      },
-      {
-        "question": "Which story features a wooden puppet who wants to be a real boy?",
-        "answers": ["          Pinocchio", "          Gepetto", "          Jiminy Cricket", "          Stromboli"],
-        "correctIndex": 0,
-        "funfact": "Pinocchio's nose grows when he tells a lie."
-      },
-      {
-        "question": "Who is the main villain in 'Peter Pan'?",
-        "answers": ["          Captain Hook", "          Smee", "          Tinker Bell", "          Wendy"],
-        "correctIndex": 0,
-        "funfact": "Captain Hook is Peter Pan's arch-nemesis."
-      }
+      {"question": "Who pulled the sword from the stone in Arthurian legend?", "answers": ["          Merlin", "          King Arthur", "          Lancelot", "          Guinevere"], "correctIndex": 1, "funfact": "King Arthur is said to have pulled Excalibur from the stone."},
+      {"question": "Who is the Greek god of the sea?", "answers": ["          Poseidon", "          Zeus", "          Hades", "          Apollo"], "correctIndex": 0, "funfact": "Poseidon is one of the twelve Olympian deities."},
+      {"question": "What is the name of the Norse god of thunder?", "answers": ["          Thor", "          Odin", "          Loki", "          Freyja"], "correctIndex": 0, "funfact": "Thor wields a magical hammer called Mjölnir."},
+      {"question": "Who is the main character in 'The Odyssey'?", "answers": ["          Odysseus", "          Achilles", "          Hector", "          Perseus"], "correctIndex": 0, "funfact": "Odysseus is the hero of Homer's epic poem 'The Odyssey.'"},
+      {"question": "Which legendary bird rises from its ashes?", "answers": ["          Phoenix", "          Griffin", "          Roc", "          Thunderbird"], "correctIndex": 0, "funfact": "The phoenix symbolizes rebirth and immortality."},
+      {"question": "Who is the trickster god in Norse mythology?", "answers": ["          Loki", "          Thor", "          Odin", "          Balder"], "correctIndex": 0, "funfact": "Loki is known for his cunning and mischief."},
+      {"question": "What is the name of the dragon in 'The Hobbit'?", "answers": ["          Drogon", "          Smaug", "          Fafnir", "          Norbert"], "correctIndex": 1, "funfact": "Smaug is the main antagonist in 'The Hobbit.'"},
+      {"question": "Who is the hero of the Greek myth 'The Twelve Labors'?", "answers": ["          Hercules", "          Perseus", "          Theseus", "          Jason"], "correctIndex": 0, "funfact": "Hercules completed twelve nearly impossible tasks."},
+      {"question": "Which story features a wooden puppet who wants to be a real boy?", "answers": ["          Pinocchio", "          Gepetto", "          Jiminy Cricket", "          Stromboli"], "correctIndex": 0, "funfact": "Pinocchio's nose grows when he tells a lie."},
+      {"question": "Who is the main villain in 'Peter Pan'?", "answers": ["          Captain Hook", "          Smee", "          Tinker Bell", "          Wendy"], "correctIndex": 0, "funfact": "Captain Hook is Peter Pan's arch-nemesis."}
     ]
   },
   {
@@ -607,66 +157,16 @@
     "description": "A playful pack designed for youngs with fun, educational questions.",
     "image": "pkg:/images/Kids.png",
     "questions": [
-      {
-        "question": "Which fruit is used to make wine?",
-        "answers": ["          Grapes", "          Apples", "          Oranges", "          Bananas"],
-        "correctIndex": 0,
-        "funfact": "Grapes are the primary fruit used to make wine, particularly red and white wines."
-      },
-      {
-        "question": "Sushi is a cuisine from which country?",
-        "answers": ["          Japan", "          China", "          Korea", "          Thailand"],
-        "correctIndex": 0,
-        "funfact": "Sushi is a traditional Japanese dish, consisting of vinegared rice and various ingredients."
-      },
-      {
-        "question": "What color are school buses in the United States?",
-        "answers": ["          Yellow", "          Red", "          Blue", "          Green"],
-        "correctIndex": 0,
-        "funfact": "School buses are yellow for high visibility."
-      },
-      {
-        "question": "Which animal says 'moo'?",
-        "answers": ["          Cow", "          Dog", "          Cat", "          Sheep"],
-        "correctIndex": 0,
-        "funfact": "Cows are known for their 'moo' sound."
-      },
-      {
-        "question": "What do bees make?",
-        "answers": ["          Honey", "          Milk", "          Bread", "          Cheese"],
-        "correctIndex": 0,
-        "funfact": "Bees make honey from flower nectar."
-      },
-      {
-        "question": "Which shape has four equal sides?",
-        "answers": ["          Square", "          Triangle", "          Rectangle", "          Circle"],
-        "correctIndex": 0,
-        "funfact": "A square has four equal sides and four right angles."
-      },
-      {
-        "question": "What is the color of the sky on a clear day?",
-        "answers": ["          Blue", "          Green", "          Yellow", "          Pink"],
-        "correctIndex": 0,
-        "funfact": "The sky appears blue due to the scattering of sunlight."
-      },
-      {
-        "question": "Which animal is known as man's best friend?",
-        "answers": ["          Dog", "          Cat", "          Rabbit", "          Parrot"],
-        "correctIndex": 0,
-        "funfact": "Dogs are often called man's best friend."
-      },
-      {
-        "question": "What do you use to write on a blackboard?",
-        "answers": ["          Chalk", "          Pen", "          Pencil", "          Marker"],
-        "correctIndex": 0,
-        "funfact": "Chalk is used to write on blackboards."
-      },
-      {
-        "question": "Which planet do we live on?",
-        "answers": ["          Earth", "          Mars", "          Venus", "          Jupiter"],
-        "correctIndex": 0,
-        "funfact": "Earth is the third planet from the Sun."
-      }
+      {"question": "Which fruit is used to make wine?", "answers": ["          Grapes", "          Apples", "          Oranges", "          Bananas"], "correctIndex": 0, "funfact": "Grapes are the primary fruit used to make wine, particularly red and white wines."},
+      {"question": "Sushi is a cuisine from which country?", "answers": ["          Japan", "          China", "          Korea", "          Thailand"], "correctIndex": 0, "funfact": "Sushi is a traditional Japanese dish, consisting of vinegared rice and various ingredients."},
+      {"question": "What color are school buses in the United States?", "answers": ["          Yellow", "          Red", "          Blue", "          Green"], "correctIndex": 0, "funfact": "School buses are yellow for high visibility."},
+      {"question": "Which animal says 'moo'?", "answers": ["          Cow", "          Dog", "          Cat", "          Sheep"], "correctIndex": 0, "funfact": "Cows are known for their 'moo' sound."},
+      {"question": "What do bees make?", "answers": ["          Honey", "          Milk", "          Bread", "          Cheese"], "correctIndex": 0, "funfact": "Bees make honey from flower nectar."},
+      {"question": "Which shape has four equal sides?", "answers": ["          Square", "          Triangle", "          Rectangle", "          Circle"], "correctIndex": 0, "funfact": "A square has four equal sides and four right angles."},
+      {"question": "What is the color of the sky on a clear day?", "answers": ["          Blue", "          Green", "          Yellow", "          Pink"], "correctIndex": 0, "funfact": "The sky appears blue due to the scattering of sunlight."},
+      {"question": "Which animal is known as man's best friend?", "answers": ["          Dog", "          Cat", "          Rabbit", "          Parrot"], "correctIndex": 0, "funfact": "Dogs are often called man's best friend."},
+      {"question": "What do you use to write on a blackboard?", "answers": ["          Chalk", "          Pen", "          Pencil", "          Marker"], "correctIndex": 0, "funfact": "Chalk is used to write on blackboards."},
+      {"question": "Which planet do we live on?", "answers": ["          Earth", "          Mars", "          Venus", "          Jupiter"], "correctIndex": 0, "funfact": "Earth is the third planet from the Sun."}
     ]
   }
 ] 
