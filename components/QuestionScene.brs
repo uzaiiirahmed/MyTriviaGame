@@ -42,8 +42,12 @@ end sub
 sub onTriviaChanged()
     cleanupPendingFunFact()
     m.trivia = m.top.trivia
-    ' Load progress for this trivia
-    m.currentQuestionIndex = 0
+    ' Use currentQuestionIndex from trivia if available
+    if m.trivia <> invalid and m.trivia.DoesExist("currentQuestionIndex") then
+        m.currentQuestionIndex = m.trivia.currentQuestionIndex
+    else
+        m.currentQuestionIndex = 0
+    end if
     filePath = "tmp:/tmp.json"
     progressStr = ReadAsciiFile(filePath)
     if progressStr <> invalid and progressStr <> "" then
@@ -54,6 +58,7 @@ sub onTriviaChanged()
             end if
         end if
     end if
+    print "Loaded progress for " + m.trivia.title + ": " + stri(m.currentQuestionIndex)
     showCurrentQuestion()
 end sub
 

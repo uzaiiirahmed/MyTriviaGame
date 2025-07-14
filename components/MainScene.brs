@@ -53,6 +53,8 @@ sub init()
         completed = 0
         if m.progress.DoesExist(t.title) then completed = m.progress[t.title] else completed = 0
         item.progressText = completed.tostr() + "/" + totalQuestions.tostr() + " Complete"
+        ' Attach current progress index to trivia object
+        t.currentQuestionIndex = completed
         listContent.appendChild(item)
     end for
     m.triviaList.content = listContent

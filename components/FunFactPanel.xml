@@ -6,7 +6,7 @@
         <field id="onContinue" type="boolean" alwaysNotify="true" />
     </interface>
     <children>
-        <Rectangle width="1280" height="720" color="0x000000E0" />
+        <Rectangle width="1280" height="720" color="0x000000FF" />
         <!-- Left column: title, fact, continue -->
         <Label id="titleLabel" text="Fun Fact!" translation="[60, 60]" width="600" height="60" horizAlign="center" vertAlign="center" color="0xFFD700FF" />
         <Label id="factLabel" text="" translation="[60, 140]" width="600" height="300" horizAlign="center" vertAlign="center" color="0xFFFFFFFF" wrap="true" />

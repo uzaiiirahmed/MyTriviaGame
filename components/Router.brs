@@ -21,7 +21,13 @@ sub onTriviaSelected()
             if triviaList[i].title = trivia.title then idx = i : exit for
         end for
         if idx = 0 or m.triviaUnlocked = true then
-            m.questionScene.trivia = trivia
+            ' Pass current progress index if available
+            if trivia.DoesExist("currentQuestionIndex") then
+                m.questionScene.trivia = trivia
+                m.questionScene.trivia.currentQuestionIndex = trivia.currentQuestionIndex
+            else
+                m.questionScene.trivia = trivia
+            end if
             m.mainScene.visible = false
             m.questionScene.visible = true
             m.questionScene.setFocus(true)
