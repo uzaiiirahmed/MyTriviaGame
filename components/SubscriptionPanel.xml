@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="SubscriptionPanel" extends="Group" focusable="true">
+    <interface>
+        <field id="onSubscribe" type="bool" alwaysNotify="true" />
+        <field id="onCancel" type="bool" alwaysNotify="true" />
+    </interface>
+    <script type="text/brightscript" uri="SubscriptionPanel.brs" />
+    <children>
+        <!-- Full screen background image -->
+        <Poster id="fullBg" uri="pkg:/images/subback.png" width="1280" height="720" translation="[0,0]" />
+        <!-- Panel background image -->
+        <Poster id="bgImage" uri="pkg:/images/wrong_bg.png" width="600" height="300" translation="[340, 210]" />
+        <!-- Unlock icon -->
+        <Poster id="unlockIcon" uri="pkg:/images/correct_bg.png" width="80" height="80" translation="[600, 220]" />
+        <Label id="message" text="Subscribe to unlock all trivia!" width="580" height="60" translation="[350, 310]" horizAlign="center" font="font:MediumBoldSystemFont" color="0xFFD700FF" />
+        <!-- Centered buttons -->
+        <Rectangle id="subscribeBtn" translation="[470, 390]" width="160" height="60" color="0xFFD700FF">
+            <Label id="subscribeLabel" text="Subscribe" width="160" height="60" horizAlign="center" vertAlign="center" color="0x222222FF" />
+        </Rectangle>
+        <Rectangle id="cancelBtn" translation="[670, 390]" width="160" height="60" color="0xCCCCCCFF">
+            <Label id="cancelLabel" text="Cancel" width="160" height="60" horizAlign="center" vertAlign="center" color="0x222222FF" />
+        </Rectangle>
+    </children>
+</component> 

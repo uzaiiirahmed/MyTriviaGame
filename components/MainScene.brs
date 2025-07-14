@@ -23,16 +23,25 @@ sub init()
 
     ' Create a ContentNode for the list
     listContent = CreateObject("roSGNode", "ContentNode")
-    for each t in m.triviaTypes
+    for i = 0 to m.triviaTypes.count()-1
+        t = m.triviaTypes[i]
         item = CreateObject("roSGNode", "ContentNode")
         item.title = t.title
         item.description = t.description
         item.HDPosterUrl = t.image
+        ' Add custom field for lock state
+        item.addField("isLocked", "boolean", false)
+        if i = 0 then
+            item.isLocked = false
+        else
+            item.isLocked = true
+        end if
         listContent.appendChild(item)
     end for
     m.triviaList.content = listContent
     m.triviaList.setFocus(true)
     m.triviaList.observeField("itemSelected", "onTriviaSelected")
+    m.top.triviaTypes = m.triviaTypes
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean

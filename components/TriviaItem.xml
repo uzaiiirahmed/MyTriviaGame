@@ -8,7 +8,7 @@
         <Rectangle
             id="background"
             width="244"
-            height="366"
+            height="500"
             color="0x333333FF">
             <Rectangle
                 id="border"
@@ -22,32 +22,42 @@
                     height="236"
                     translation="[4,4]"
                 />
+                <Poster
+                    id="lockIcon"
+                    uri="pkg:/images/locked.png"
+                    width="40"
+                    height="40"
+                    translation="[196,8]"
+                    visible="false" />
             </Rectangle>
             <Label
                 id="title"
                 width="236"
                 height="24"
-                translation="[4, 248]"
-                font="font:MediumBoldSystemFont"
+                translation="[4, 268]"
+                font="font:SmallSystemFont"
                 horizAlign="left"
+                wrap="true"
             />
             <Label
                 id="progress"
                 width="236"
                 height="24"
-                translation="[4, 272]"
+                translation="[4, 316]"
                 font="font:SmallSystemFont"
                 horizAlign="left"
                 text="0/10 Complete"
+                color="0xFFD700FF"
             />
             <Label
                 id="description"
                 width="236"
-                height="72"
-                translation="[4, 300]"
+                height="180"
+                translation="[4, 348]"
                 font="font:SmallSystemFont"
                 horizAlign="left"
                 wrap="true"
+                color="0xFFFFFFFF"
             />
         </Rectangle>
     </children>
