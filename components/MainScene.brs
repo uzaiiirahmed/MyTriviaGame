@@ -61,7 +61,7 @@ sub init()
     resetItem = CreateObject("roSGNode", "ContentNode")
     resetItem.title = "Reset Progress"
     resetItem.description = "Reset all trivia progress to the start."
-    resetItem.HDPosterUrl = "" ' You can set an image later
+    resetItem.HDPosterUrl = "pkg:/images/resetprogress.png" ' Set image on initial load too
     resetItem.addField("isLocked", "boolean", false)
     resetItem.isLocked = false
     resetItem.addField("progressText", "string", false)
