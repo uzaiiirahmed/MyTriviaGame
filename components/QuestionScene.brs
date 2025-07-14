@@ -167,6 +167,7 @@ sub showCurrentQuestion()
         m.feedbackLabel.text = ""
         if m.feedbackIcon <> invalid then m.feedbackIcon.uri = ""
         updateProgress()
+        m.top.backToMain = true
     end if
 end sub
 

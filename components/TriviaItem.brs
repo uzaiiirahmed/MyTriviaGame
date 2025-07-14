@@ -1,34 +1,41 @@
 sub init()
-    m.top.observeField("itemContent", "onItemContentChange")
-    m.top.observeField("state", "onStateChange")
-    m.border = m.top.findNode("border")
-end sub
-
-sub onStateChange()
-    if m.top.state = "focused"
-        m.border.color = "0xFFD700FF" ' Yellow
-    else if m.top.state = "unfocused"
-        m.border.color = "0x555555FF" ' Original Gray
-    end if
+    m.poster = m.top.findNode("poster")
+    m.lockIcon = m.top.findNode("lockIcon")
+    m.titleLabel = m.top.findNode("title")
+    m.progressLabel = m.top.findNode("progress")
+    m.descriptionLabel = m.top.findNode("description")
 end sub
 
 sub onItemContentChange()
-    itemContent = m.top.itemContent
-    if itemContent <> invalid
-        m.top.findNode("title").text = itemContent.title
-        m.top.findNode("poster").uri = itemContent.HDPosterUrl
-        m.top.findNode("description").text = itemContent.description
-        ' Show lock icon if isLocked is true
-        lockIcon = m.top.findNode("lockIcon")
-        if lockIcon <> invalid and itemContent.isLocked = true
-            lockIcon.visible = true
-        else if lockIcon <> invalid
-            lockIcon.visible = false
-        end if
-        ' Set progress label
-        progressLabel = m.top.findNode("progress")
-        if progressLabel <> invalid and itemContent.progressText <> invalid
-            progressLabel.text = itemContent.progressText
-        end if
+    item = m.top.itemContent
+    if item = invalid then return
+
+    ' Set poster image
+    if item.HDPosterUrl <> invalid then
+        m.poster.uri = item.HDPosterUrl
     end if
-end sub 
+
+    ' Set title
+    if item.title <> invalid then
+        m.titleLabel.text = item.title
+    end if
+
+    ' Set description
+    if item.description <> invalid then
+        m.descriptionLabel.text = item.description
+    end if
+
+    ' Set progress text (e.g., "3/10 Completed")
+    if item.progressText <> invalid then
+        m.progressLabel.text = item.progressText
+    else
+        m.progressLabel.text = "0/10 Completed"
+    end if
+
+    ' Handle lock state
+    if item.hasField("isLocked") and item.isLocked = true then
+        m.lockIcon.visible = true
+    else
+        m.lockIcon.visible = false
+    end if
+end sub
