@@ -226,6 +226,10 @@ sub showFunFactScreen(q as Object)
     if m.funFactPanel <> invalid then m.top.removeChild(m.funFactPanel)
     m.funFactPanel = createObject("roSGNode", "FunFactPanel")
     m.funFactPanel.funfact = q.funfact
+    ' Pass the current trivia image to the fun fact panel
+    if m.trivia <> invalid and m.trivia.image <> invalid then
+        m.funFactPanel.sideImageUri = m.trivia.image
+    end if
     m.funFactPanel.observeField("onContinue", "onFunFactContinue")
     m.top.appendChild(m.funFactPanel)
     m.funFactPanel.setFocus(true)
