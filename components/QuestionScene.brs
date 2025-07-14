@@ -23,9 +23,35 @@ sub init()
     ' LabelList doesn't support itemComponentName, so we'll use ContentNode with proper color management
 end sub
 
+sub cleanupPendingFunFact()
+    ' Stop and clear any pending fun fact timer
+    if m.funFactDelayTimer <> invalid then
+        m.funFactDelayTimer.control = "stop"
+    end if
+    ' Remove any fun fact panel
+    if m.funFactPanel <> invalid then
+        m.top.removeChild(m.funFactPanel)
+        m.funFactPanel = invalid
+    end if
+    m.pendingFunFactQuestion = invalid
+    m.answered = false
+end sub
+
 sub onTriviaChanged()
+    cleanupPendingFunFact()
     m.trivia = m.top.trivia
+    ' Load progress for this trivia
     m.currentQuestionIndex = 0
+    filePath = "tmp:/tmp.json"
+    progressStr = ReadAsciiFile(filePath)
+    if progressStr <> invalid and progressStr <> "" then
+        parsed = ParseJson(progressStr)
+        if type(parsed) = "roAssociativeArray" and m.trivia.title <> invalid then
+            if parsed.DoesExist(m.trivia.title) then
+                m.currentQuestionIndex = parsed[m.trivia.title]
+            end if
+        end if
+    end if
     showCurrentQuestion()
 end sub
 
@@ -33,6 +59,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     ' If FunFactPanel is visible, forward key events to it
     if m.funFactPanel <> invalid and m.funFactPanel.isInFocusChain() then
         if key = "back" and press then
+            cleanupPendingFunFact()
             m.top.backToMain = true
             return true
         end if
@@ -95,6 +122,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             end if
             return true
         else if key = "back" then
+            cleanupPendingFunFact()
             m.top.backToMain = true
             return true
         end if
