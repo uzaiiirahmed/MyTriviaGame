@@ -3,11 +3,15 @@ sub init()
     m.questionScene = m.top.findNode("questionScene")
     m.subscriptionPanel = m.top.findNode("subscriptionPanel")
 
+    ' Load unlock state from registry
+    reg = CreateObject("roRegistrySection", "TriviaGameSave")
+    unlocked = reg.Read("triviaUnlocked")
+    m.triviaUnlocked = (unlocked = "true")
+
     m.mainScene.observeField("selectedTrivia", "onTriviaSelected")
     m.questionScene.observeField("backToMain", "onBackToMain")
     m.subscriptionPanel.observeField("onSubscribe", "onSubscribe")
     m.subscriptionPanel.observeField("onCancel", "onCancel")
-    m.triviaUnlocked = false ' This should be loaded from registry in a real app
 end sub
 
 sub onTriviaSelected()
@@ -41,7 +45,13 @@ end sub
 
 sub onSubscribe()
     print "[Router] - User chose to subscribe. Unlocking trivia."
-    m.triviaUnlocked = true ' In real app, save to registry
+    m.triviaUnlocked = true
+
+    ' Save unlock state in registry
+    reg = CreateObject("roRegistrySection", "TriviaGameSave")
+    reg.Write("triviaUnlocked", "true")
+    reg.Flush()
+
     ' Unlock all trivia in the main menu
     triviaListNode = m.mainScene.findNode("triviaList")
     if triviaListNode <> invalid then
