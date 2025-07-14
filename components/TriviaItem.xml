@@ -50,7 +50,7 @@
             <Label
                 id="description"
                 width="236"
-                height="72"
+                height="120"
                 translation="[4, 300]"
                 font="font:SmallSystemFont"
                 horizAlign="left"

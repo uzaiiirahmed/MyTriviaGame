@@ -6,7 +6,7 @@
     </interface>
     <children>
         <Rectangle id="bg" width="600" height="60" color="0x222222FF" radius="15" />
-        <Label id="optionLabel" text="" translation="[20, 10]" width="560" height="40" horizAlign="left" vertAlign="center" color="0xFFFFFFFF" />
+        <Label id="optionLabel" text="" translation="[20, 10]" width="560" height="60" horizAlign="left" vertAlign="center" color="0xFFFFFFFF" wrap="true" />
     </children>
     <script type="text/brightscript" uri="OptionItem.brs" />
 </component> 
