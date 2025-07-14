@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="ResetProgressPanel" extends="Group" focusable="true">
+    <interface>
+        <field id="onYes" type="bool" alwaysNotify="true" />
+        <field id="onNo" type="bool" alwaysNotify="true" />
+    </interface>
+    <script type="text/brightscript" uri="ResetProgressPanel.brs" />
+    <children>
+        <Poster id="fullBg" uri="pkg:/images/subback.png" width="1280" height="720" translation="[0,0]" />
+        <Poster id="bgImage" uri="pkg:/images/wrong_bg.png" width="600" height="300" translation="[340, 210]" />
+        <Label id="message" text="Would you like to reset your progress of all trivias?" width="580" height="60" translation="[350, 310]" horizAlign="center" font="font:MediumBoldSystemFont" color="0xFFD700FF" />
+        <Rectangle id="yesBtn" translation="[470, 390]" width="160" height="60" color="0xFFD700FF">
+            <Label id="yesLabel" text="Yes" width="160" height="60" horizAlign="center" vertAlign="center" color="0x222222FF" />
+        </Rectangle>
+        <Rectangle id="noBtn" translation="[670, 390]" width="160" height="60" color="0xCCCCCCFF">
+            <Label id="noLabel" text="No" width="160" height="60" horizAlign="center" vertAlign="center" color="0x222222FF" />
+        </Rectangle>
+    </children>
+</component> 

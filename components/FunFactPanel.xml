@@ -2,13 +2,17 @@
 <component name="FunFactPanel" extends="Group">
     <interface>
         <field id="funfact" type="string" onChange="onFunFactChanged" />
+        <field id="sideImageUri" type="string" onChange="onSideImageUriChanged" />
         <field id="onContinue" type="boolean" alwaysNotify="true" />
     </interface>
     <children>
-        <Rectangle width="1280" height="720" color="0x000000E0" />
-        <Label id="titleLabel" text="Fun Fact!" translation="[0, 200]" width="1280" height="80" horizAlign="center" vertAlign="center" color="0xFFD700FF" />
-        <Label id="factLabel" text="" translation="[140, 320]" width="1000" height="300" horizAlign="center" vertAlign="center" color="0xFFFFFFFF" wrap="true" />
-        <Label id="continueLabel" text="Press OK to continue" translation="[0, 550]" width="1280" height="60" horizAlign="center" vertAlign="center" color="0xFFD700FF" />
+        <Rectangle width="1280" height="720" color="0x000000FF" />
+        <!-- Left column: title, fact, continue -->
+        <Label id="titleLabel" text="Fun Fact!" translation="[60, 60]" width="600" height="60" horizAlign="center" vertAlign="center" color="0xFFD700FF" />
+        <Label id="factLabel" text="" translation="[60, 140]" width="600" height="300" horizAlign="center" vertAlign="center" color="0xFFFFFFFF" wrap="true" />
+        <Label id="continueLabel" text="Press OK to continue" translation="[60, 500]" width="600" height="60" horizAlign="center" vertAlign="center" color="0xFFD700FF" />
+        <!-- Right column: trivia image -->
+        <Poster id="sideImage" translation="[700, 60]" width="500" height="600" uri="" />
     </children>
     <script type="text/brightscript" uri="FunFactPanel.brs" />
 </component> 

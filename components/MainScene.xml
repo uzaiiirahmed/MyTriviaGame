@@ -39,5 +39,6 @@
             vertAlign="center"
             color="0xFFD700FF"
         />
+        <ResetProgressPanel id="resetProgressPanel" visible="false" />
     </children>
 </component>
