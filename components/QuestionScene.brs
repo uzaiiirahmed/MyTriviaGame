@@ -35,6 +35,8 @@ sub cleanupPendingFunFact()
     end if
     m.pendingFunFactQuestion = invalid
     m.answered = false
+    ' Extra: ensure no ghost fun fact panel remains
+    m.funFactPanel = invalid
 end sub
 
 sub onTriviaChanged()
@@ -122,6 +124,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             end if
             return true
         else if key = "back" then
+            updateProgress() ' Save progress before leaving
             cleanupPendingFunFact()
             m.top.backToMain = true
             return true
@@ -152,7 +155,8 @@ sub showCurrentQuestion()
     if trivia <> invalid and totalQuestions > 0 and idx < totalQuestions then
         q = trivia.questions[idx]
         m.titleLabel.text = trivia.title
-        m.questionLabel.text = q.question
+        ' Add question number before the question text
+        m.questionLabel.text = "Q " + stri(idx + 1) + "/" + stri(totalQuestions) + " :   " + q.question
 
         ' Set the side image from trivia data
         if m.sideImage <> invalid and trivia.image <> invalid
@@ -314,4 +318,8 @@ sub updateProgress()
     ' Write back to file using WriteAsciiFile
     jsonStr = FormatJson(progress)
     WriteAsciiFile(filePath, jsonStr)
+end sub 
+
+sub onUnfocus()
+    updateProgress() ' Save progress when scene is unfocused (e.g., app quit or backgrounded)
 end sub 
