@@ -24,7 +24,7 @@
             id="triviaList"
             translation="[82, 160]"
             itemComponentName="TriviaItem"
-            itemSize="[244, 366]"
+            itemSize="[244, 500]"
             itemSpacing="[40, 0]"
             numColumns="4"
             numRows="1"
