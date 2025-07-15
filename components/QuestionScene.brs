@@ -19,6 +19,11 @@ sub init()
         m.funFactDelayTimer.observeField("fire", "onFunFactDelayTimerFired")
     end if
     m.pendingFunFactQuestion = invalid
+    m.scoreStats = {
+        firstTry: 0,
+        secondTry: 0,
+        wrong: 0
+    }
 end sub
 
 sub cleanupPendingFunFact()
@@ -33,6 +38,11 @@ sub onTriviaChanged()
     cleanupPendingFunFact()
     m.trivia = m.top.trivia
     m.currentQuestionIndex = 0
+    m.scoreStats = {
+        firstTry: 0,
+        secondTry: 0,
+        wrong: 0
+    }
 
     reg = CreateObject("roRegistrySection", "TriviaGameSave")
     if m.trivia <> invalid and m.trivia.title <> invalid then
@@ -85,6 +95,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
                 else
                     showFunFactScreen(q)
                 end if
+                if m.attempts = 0 then
+                    m.scoreStats.firstTry = m.scoreStats.firstTry + 1
+                else if m.attempts = 1 then
+                    m.scoreStats.secondTry = m.scoreStats.secondTry + 1
+                end if
             else
                 m.attempts = m.attempts + 1
                 if m.attempts = 1 then
@@ -104,6 +119,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
                     else
                         showFunFactScreen(q)
                     end if
+                    m.scoreStats.wrong = m.scoreStats.wrong + 1
                 end if
             end if
             return true
@@ -129,7 +145,6 @@ end sub
 sub showCurrentQuestion()
     trivia = m.trivia
     idx = m.currentQuestionIndex
-    m.attempts = 0
     totalQuestions = trivia.questions.count()
 
     if idx < totalQuestions then
@@ -167,6 +182,20 @@ sub showCurrentQuestion()
         m.feedbackLabel.text = ""
         if m.feedbackIcon <> invalid then m.feedbackIcon.uri = ""
         updateProgress()
+        ' Show score summary below Quiz Complete!
+        m.scoreLabel = m.top.findNode("scoreLabel")
+        if m.scoreLabel = invalid then
+            m.scoreLabel = CreateObject("roSGNode", "Label")
+            m.scoreLabel.id = "scoreLabel"
+            m.scoreLabel.translation = [60, 235] ' 35px below questionLabel (which is at y=140+60=200)
+            m.scoreLabel.width = 600
+            m.scoreLabel.height = 100
+            m.scoreLabel.horizAlign = "center"
+            m.scoreLabel.vertAlign = "top"
+            m.scoreLabel.color = "0xFFD700FF"
+            m.top.appendChild(m.scoreLabel)
+        end if
+        m.scoreLabel.text = "On 1st try: " + m.scoreStats.firstTry.toStr() + "   On 2nd try: " + m.scoreStats.secondTry.toStr() + "   Wrong: " + m.scoreStats.wrong.toStr()
         ' Add a timer to delay navigation
         m.quizCompleteTimer = createObject("roSGNode", "Timer")
         m.quizCompleteTimer.duration = 3
