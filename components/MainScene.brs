@@ -76,6 +76,7 @@ sub init()
     m.top.refreshProgress = refreshProgress
     m.resetPanel = invalid
     m.resetPanelVisible = false
+    m.top.observeField("visible", "onVisibleChanged")
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
@@ -118,7 +119,9 @@ sub onTriviaSelected()
 end sub
 
 function refreshProgress() as Void
-    m = m.top ' Ensure m is the component's m.top
+    m = m.top
+
+    ' Read saved progress from file
     m.progress = {}
     progressStr = ReadAsciiFile("tmp:/tmp.json")
     if progressStr <> invalid and progressStr <> ""
@@ -127,16 +130,23 @@ function refreshProgress() as Void
             m.progress = progressParsed
         end if
     end if
+
+    ' Update the progress text for each trivia type
     listContent = m.triviaList.content
-    for i = 0 to m.triviaTypes.count()-1
+    for i = 0 to m.triviaTypes.count() - 1
         t = m.triviaTypes[i]
         item = listContent.getChild(i)
-        totalQuestions = 0
-        if t.questions <> invalid and type(t.questions) = "roArray" then totalQuestions = t.questions.count() else totalQuestions = 10
+        
+        totalQuestions = t.questions.count()
         completed = 0
-        if m.progress.DoesExist(t.title) then completed = m.progress[t.title] else completed = 0
+        if m.progress.DoesExist(t.title)
+            completed = m.progress[t.title]
+        end if
+
         item.progressText = completed.tostr() + "/" + totalQuestions.tostr() + " Complete"
     end for
+
+    ' Apply the changes to the list
     m.triviaList.content = listContent
 end function
 
@@ -213,4 +223,11 @@ sub onResetNo()
         m.resetPanelVisible = false
     end if
     m.triviaList.setFocus(true)
+end sub
+
+sub onVisibleChanged()
+    if m.top.visible
+        m.triviaList.setFocus(true)
+        m.top.needsFocus = false
+    end if
 end sub

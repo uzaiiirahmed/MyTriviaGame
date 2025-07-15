@@ -3,6 +3,10 @@
     <interface>
         <field id="selectedTrivia" type="assocarray" alwaysNotify="true" />
         <field id="triviaTypes" type="array" />
+        <field id="triviaUnlocked" type="boolean" />
+        <field id="refreshProgress" type="boolean" alwaysNotify="true" />
+        <field id="progress" type="assocarray" />
+        <field id="needsFocus" type="boolean" />
     </interface>
     <script type="text/brightscript" uri="MainScene.brs" />
 
