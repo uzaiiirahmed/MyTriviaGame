@@ -8,6 +8,7 @@
         <Rectangle width="1280" height="720" color="0x000000FF" />
         <Label id="titleLabel" text="" translation="[60, 60]" width="600" height="60" horizAlign="center" vertAlign="center" color="0xFFD700FF" />
         <Label id="questionLabel" text="" translation="[60, 140]" width="600" height="160" horizAlign="center" vertAlign="center" color="0xFFFFFFFF" wrap="true" />
+        <Label id="scoreLabel" text="" translation="[60, 235]" width="600" height="220" horizAlign="center" vertAlign="center" color="0xFFD700FF" visible="false" />
         <LabelList
             id="answerList"
             translation="[60, 260]"
