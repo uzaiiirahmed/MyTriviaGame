@@ -167,7 +167,12 @@ sub showCurrentQuestion()
         m.feedbackLabel.text = ""
         if m.feedbackIcon <> invalid then m.feedbackIcon.uri = ""
         updateProgress()
-        m.top.backToMain = true
+        ' Add a timer to delay navigation
+        m.quizCompleteTimer = createObject("roSGNode", "Timer")
+        m.quizCompleteTimer.duration = 3
+        m.quizCompleteTimer.observeField("fire", "onQuizCompleteTimerFired")
+        m.top.appendChild(m.quizCompleteTimer)
+        m.quizCompleteTimer.control = "start"
     end if
 end sub
 
@@ -256,4 +261,13 @@ end sub
 
 sub onUnfocus()
     updateProgress()
+end sub
+
+sub onQuizCompleteTimerFired()
+    if m.quizCompleteTimer <> invalid then
+        m.quizCompleteTimer.control = "stop"
+        m.top.removeChild(m.quizCompleteTimer)
+        m.quizCompleteTimer = invalid
+    end if
+    m.top.backToMain = true
 end sub
