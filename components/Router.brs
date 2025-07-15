@@ -78,13 +78,32 @@ sub onCancel()
 end sub
 
 sub onBackToMain()
+    print "[Router] - onBackToMain called, backToMain = " + m.questionScene.backToMain.tostr()
     if m.questionScene.backToMain = true
+        print "[Router] - Switching back to main scene"
         ' Switch visibility
         m.questionScene.visible = false
         m.mainScene.visible = true
-        m.mainScene.findNode("triviaList").setFocus(true)
-        m.mainScene.callFunc("refreshProgress") ' Refresh progress when returning to main
+        m.mainScene.refreshProgress = true
+        ' Set focus to triviaList after a short delay to ensure UI is ready
+        focusTimer = CreateObject("roSGNode", "Timer")
+        focusTimer.id = "focusTimer"
+        focusTimer.duration = 0.1 ' 100ms delay
+        focusTimer.control = "start"
+        focusTimer.observeField("fire", "onFocusTimerFired")
+        m.mainScene.appendChild(focusTimer)
         ' Reset field to allow re-triggering
         m.questionScene.backToMain = false
     end if
+end sub
+
+sub onFocusTimerFired()
+    print "[Router] - Focus timer fired, setting focus to triviaList"
+    triviaList = m.mainScene.findNode("triviaList")
+    if triviaList <> invalid then
+        triviaList.setFocus(true)
+    end if
+    ' Remove the timer node after firing
+    timer = m.mainScene.findNode("focusTimer")
+    if timer <> invalid then m.mainScene.removeChild(timer)
 end sub 

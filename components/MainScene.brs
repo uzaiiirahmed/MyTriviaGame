@@ -76,6 +76,7 @@ sub init()
     m.top.refreshProgress = refreshProgress
     m.resetPanel = invalid
     m.resetPanelVisible = false
+    m.top.observeField("visible", "onVisibleChanged")
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
@@ -222,4 +223,11 @@ sub onResetNo()
         m.resetPanelVisible = false
     end if
     m.triviaList.setFocus(true)
+end sub
+
+sub onVisibleChanged()
+    if m.top.visible
+        m.triviaList.setFocus(true)
+        m.top.needsFocus = false
+    end if
 end sub

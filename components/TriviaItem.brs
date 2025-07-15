@@ -29,7 +29,7 @@ sub onItemContentChange()
     if item.progressText <> invalid then
         m.progressLabel.text = item.progressText
     else
-        m.progressLabel.text = "0/10 Completed"
+        ' m.progressLabel.text = "0/10 Completed"
     end if
 
     ' Handle lock state

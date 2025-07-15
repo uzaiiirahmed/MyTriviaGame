@@ -48,6 +48,7 @@
                 horizAlign="left"
                 text="0/10 Complete"
                 color="0xFFD700FF"
+                visible="false"
             />
             <Label
                 id="description"
